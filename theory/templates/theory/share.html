@@ -1,0 +1,68 @@
+
+
+    <form method="post" enctype="multipart/form-data">
+    	{% csrf_token %}
+        <div class="row">
+        
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-header">Share Question</div>
+                    <div class="card-body">
+                            <div>
+                                <div>
+                                    <div class="col col-md-3" >
+                                        <label>Category</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <select name="category">
+                                            <option value="general">General</option>
+                                            <option value="waec">Waec</option>
+                                            <option value="jamb">Jamb</option>
+                                            <option value="neco">Neco</option>
+                                            <option value="gce">GCE</option>
+                                            <option value="gmat">Gmat</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="col col-md-3" >
+                                        <label>Difficulty</label>
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        <select name="level">
+                                            <option value="simple">Simple</option>
+                                            <option value="intermediate">Intermediate</option>
+                                            <option value="hard">Hard</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <label>Question:</label>
+                                <textarea style="margin-top: -10px;" name="question" id="textarea-input" placeholder="Enter your question...." rows="4" class="form-control"></textarea>
+                                <br />
+
+                                <label>Answer:</label>
+                                <textarea style="margin-top: -10px;" name="answer" id="textarea-input" placeholder="Enter your answer...." rows="4" class="form-control"></textarea>
+
+
+                            </div>
+                    </div>
+                </div>
+            </div>                              
+                
+		</div>	
+		
+		<div class="row">
+
+			<div class="col-lg-12 col-md-8 col-sm-6 col-xs-4">
+                <button type="submit">
+                   <span class="btn btn-success">Submit</span>
+                </button>
+            </div>
+		</div>
+ </form>
+
+<br />
+
+
+

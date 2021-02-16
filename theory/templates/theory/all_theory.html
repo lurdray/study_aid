@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+{% load static %}
+      
+
+{% block content %}
+
+  <br />
+  <br />
+  <br />
+
+  <p>Theory Questions for you!</p>
+  {% for item in theorys %}
+  	<small>Question: {{ item.question }}</small><br />
+  	<small>Answer: {{ item.answer }}</small>
+  	<hr>
+  	<br />
+  {% endfor %}
+  <br />
+  <br />
+
+
+
+{% endblock %}

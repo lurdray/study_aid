@@ -1,0 +1,10 @@
+<p>Your Result:</p>
+
+
+{% if results %}
+<ul>
+	{% for item in results %}
+		<li>Name:{{ item.app_user }}, {{ item.score }} out of {{ item.total }}. ({{ item.percentage }}%)</li>
+	{% endfor %}
+</ul>
+{% endif %}

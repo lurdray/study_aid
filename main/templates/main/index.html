@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% load static %}
+      
+
+{% block content %}
+
+  <br />
+  <br />
+  <br />
+
+  <p>Study Resources for you!</p>
+  {% for item in study_resources %}
+  	<a href="{% url 'study_resource:resource_detail' item.id %}">{{ item.title }}</a><br />
+  {% endfor %}
+  <br />
+  <br />
+
+
+
+{% endblock %}

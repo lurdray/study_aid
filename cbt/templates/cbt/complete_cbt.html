@@ -1,0 +1,51 @@
+{% extends 'main/cbt_base.html'%}
+{% load static %}
+
+{% block content %}
+
+
+
+
+
+<!-- Start Faculty Area -->
+<section class="faculty-area section-gap" style="margin-top: -65px;">
+	<div class="container">
+		<div class="row justify-content-center">
+
+	
+
+		<form class="container" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+					<div class="col-lg-12">
+						<div class="section-title">	
+
+							<blockquote class="generic-blockquote" style="background: #fff">
+								<p>You scored: {{ cbt.actual_score }} out of {{ cbt.total_score }}</p>
+								<p>Percentage: {{ cbt.percentage }}%</p>
+							</blockquote>
+						</div>
+					</div>
+
+
+					<div class="col-lg-12">
+						<div class="section-title">	
+		 					<a class="btn btn-success" href="{% url 'theory:all_theory' cbt.cbt_category cbt.cbt_level %}">See Theory Questions</a>
+		 				</div>
+		 			</div>
+
+
+		 			<div class="col-lg-12">
+						<div class="section-title">	
+		 					<a class="btn btn-success" href="{% url 'main:index' %}">Complete CBT</a>
+		 				</div>
+		 			</div>
+
+	</form>
+
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

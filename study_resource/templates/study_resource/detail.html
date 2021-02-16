@@ -1,0 +1,56 @@
+{{ study_resource.title }}
+<br />
+{{ study_resource.description }}
+<br />
+
+{{ study_resource.category }}
+<br />
+
+{{ study_resource.pub_date }}
+<br />
+
+<br />
+<p>Contents for this Resource</p>
+{% for item in study_resource.contents.all %}
+ <small>{{ item.content }}</small><br />
+{% endfor %}
+<br />
+
+<br />
+<p>Ebooks for this Resource</p>
+{% for item in study_resource.contents.all %}
+ <small>{{ item.ebook.url }}</small><br />
+{% endfor %}
+<br />
+
+<br />
+<p>Videos for this Resource</p>
+{% for item in study_resource.videos.all %}
+ <small>{{ item.video }}</small><br />
+{% endfor %}
+<br />
+
+<br />
+<p>Audios for this Resource</p>
+{% for item in study_resource.audios.all %}
+ <small>{{ item.audio }}</small><br />
+{% endfor %}
+<br />
+
+<br />
+<p>Images for this Resource</p>
+{% for item in study_resource.images.all %}
+ <small>{{ item.image.url }}</small><br />
+{% endfor %}
+<br />
+
+<br />
+<p>Links for this Resource</p>
+{% for item in study_resource.links.all %}
+ <small>{{ item.link }}</small><br />
+{% endfor %}
+<br />
+
+<hr>
+
+<a href="{% url 'study_resource:contribute_resource' study_resource.id %}">Contribute to this Resource</a>

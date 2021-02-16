@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% load static %}
+      
+
+{% block content %}
+
+  <br />
+  <br />
+  <br />
+
+  <p>Study Resources for you!</p>
+  {% if competes %}
+	  {% for item in competes %}
+	  	<a href="{% url 'compete:result_detail' item.id %}">{{ item.title }}</a><br />
+	  {% endfor %}
+
+
+  {% else %}
+
+  		<p>Sorry, Nothing Yet!</p>
+
+  {% endif %}
+  <br />
+  <br />
+
+
+
+{% endblock %}

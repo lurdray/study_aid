@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>StudyAid: Aiding Students to Study Better and Easier..</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/plugins/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/fonts/Linearicons/Linearicons/Font/demo-files/demo.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/owl-carousel/assets/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/owl-carousel/assets/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/slick/slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/nouislider/nouislider.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/lightGallery-master/dist/css/lightgallery.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/select2/dist/css/select2.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/market-place-1.css' %}"> 
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/deque-patterns.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/electronic.css' %}">
+
+</head>
+<body>
+<style>
+    span{cursor:pointer; }
+        .minus, .plus{
+            width:20px;
+            height:20px;
+            background:#f2f2f2;
+            border-radius:4px;
+            padding:8px 5px 8px 5px;
+            border:1px solid #ddd;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+        }
+        input{
+            height:34px;
+      width: 100px;
+      text-align: center;
+      font-size: 26px;
+            border:1px solid #ddd;
+            border-radius:4px;
+      display: inline-block;
+      vertical-align: middle;
+            }
+            
+</style>
+
+<style>
+.deque-slider-multirange label {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+.deque-slider-multirange label input {
+  margin: 0 0 0 10px;
+  padding: 5px;
+}
+.deque-slider-multirange label input:focus {
+  outline: 1px dashed #000000;
+}
+.deque-slider-multirange .slider {
+  position: relative;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  margin-top: 12px;
+}
+.deque-slider-multirange .slider button {
+  height: 24px;
+  width: 8px;
+  background: #0078d7;
+  padding: 0;
+  border-radius: 4px;
+  position: absolute;
+  top: -12px;
+  outline: none;
+  max-width: auto;
+  min-width: auto;
+  border: 1px solid transparent;
+}
+.deque-slider-multirange .slider button:focus,
+.deque-slider-multirange .slider button:active {
+  outline: 1px dashed #000000;
+}
+</style>
+
+    <header class="header header--standard header--electronic" data-sticky="true">
+        <div class="header__top">
+            <div class="container">
+                <div class="header__left">
+                    <p>StudyAid: Aiding Students to Study Better and Easier..</p>
+                </div>
+            {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}} text-center" style="background-color:  #32CD32; color: #fff" role="alert">
+                <p style="color: #fff">{{ message }}</p>
+                </div>
+                {% endfor %}
+            {% endif %}
+                <div class="header__right">
+                    <ul class="header__top-links">
+                        <li><a href="">Home</a></li>
+                        <li>
+                            <div class="ps-dropdown"><a href="#">Menu</a>
+                                <ul class="ps-dropdown-menu">
+                                    <li><a href="{% url 'cbt:setup_cbt' %}">CBT</a></li>
+                                    <li><a href="#">Study</a></li>
+                                    <li><a href="{% url 'compete:compete' %}">Compete</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="ps-dropdown"><a href="#">Share</a>
+                                <ul class="ps-dropdown-menu">
+                                    <li><a href="{% url 'question:share_question' %}">Obj Question</a></li>
+                                    <li><a href="{% url 'theory:share_theory' %}">Theory Question</a></li>
+                                    <li><a href="{% url 'study_resource:share_resource' %}">Resource</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Privacy & Terms</a></li>
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="header__content" style="background-color:#f4f4f4">
+            <div class="container">
+                <div class="header__content-left"><a class="ps-logo" href="{% url 'main:index' %}"><img width="50px" height="50px" src="{% static 'main/img/' %}" alt=""></a>
+                    <div class="menu--product-categories">
+                        <div class="menu__toggle"><i style="color:#5a6981" class="icon-menu"></i><span style="color:#5a6981">Menu</span></div>
+                        <div class="menu__content">
+                            <ul class="menu--dropdown">
+                                <li><a href="{% url 'cbt:setup_cbt' %}"> CBT</a>
+                                </li>
+                                <li><a href="#"> Study</a>
+                                </li>
+                                <li><a href="{% url 'compete:compete' %}"> Compete</a>
+                                </li>
+                                <li><a href="{% url 'question:share_question' %}">Obj Question</a></li>
+                                <li><a href="{% url 'theory:share_theory' %}">Theory Question</a></li>
+                                <li><a href="{% url 'study_resource:share_resource' %}">Resource</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="header__content-center">
+                    <form class="ps-form--quick-search" method="post" action="/search">
+                        {% csrf_token %}
+                        <input class="form-control" type="text" name="query" placeholder="Enter any topic/subject/course...">
+                        <button>Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <header class="header header--mobile electronic" data-sticky="true">
+        <div style="background-color: #6f448b">
+            <br />
+            <div class="container text-left"><a class="ps-logo" href="#"><img width="50px" height="50px" src="{% static 'main/img/' %}" alt=""></a></div>
+            </br />
+        </div>
+         {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{message.tags}} text-center" style="background-color:  #32CD32; color: #fff" role="alert">
+                <p style="color: #fff">{{ message }}</p>
+                </div>
+                {% endfor %}
+            {% endif %}
+    </header>
+    <div class="ps-panel--sidebar" id="navigation-mobile">
+        <div class="ps-panel__header">
+            <h3>Menu:</h3>
+        </div>
+        <div class="ps-panel__content">
+            <ul class="menu--mobile">
+                <li><a href="{% url 'cbt:setup_cbt' %}"> CBT</a>
+                </li>
+                <li><a href="#"> Study</a>
+                </li>
+                <li><a href="{% url 'compete:compete' %}"> Compete</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="navigation--list">
+        <div class="navigation__content">
+          <a class="navigation__item ps-toggle--sidebar" href="#">
+            <i class="icon-home"></i>
+            <span> Home</span>
+          </a>
+          <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar">
+            <i class="icon-magnifier"></i>
+            <span> Search</span>
+          </a>
+          <a class="navigation__item ps-toggle--sidebar" href="#menu-mobile">
+            <i class="icon-menu"></i>
+            <span> Menu</span>
+          </a>
+          <a class="navigation__item ps-toggle--sidebar" href="#">
+            <i class="icon-list4"></i><span> About</span>
+          </a>
+            <a class="navigation__item ps-toggle--sidebar" href="#">
+                <i class="icon-magnifier"></i>
+                <span> Logout</span>
+            </a>
+        </div>
+    </div>
+    <div class="ps-panel--sidebar" id="search-sidebar">
+        <div class="ps-panel__header">
+            <form class="ps-form--search-mobile" method="post" action="/search">
+                    {% csrf_token %}
+                <div class="form-group--nest">
+                    <input name="query" class="form-control" type="text" placeholder="Enter any topic/subject/course...">
+                    <button><i class="icon-magnifier"></i></button>
+                </div>
+            </form>
+        </div>
+        <div class="navigation__content"></div>
+    </div>
+    <div class="ps-panel--sidebar" id="menu-mobile">
+        <div class="ps-panel__header">
+            <h3>Menu</h3>
+        </div>
+        <div class="ps-panel__content">
+            <ul class="menu--mobile">
+                <li class="current-menu-item menu-item-has-children"><a href="{% url 'cbt:setup_cbt' %}">CBT</a><span class="sub-toggle"></span>
+                </li>
+                <li class="current-menu-item menu-item-has-children"><a href="#">Study</a><span class="sub-toggle"></span>
+                </li>
+                <li class="current-menu-item menu-item-has-children"><a href="{% url 'compete:compete' %}">Compete</a><span class="sub-toggle"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+            {% block content %}
+            
+            {% endblock content %}
+
+
+
+
+
+
+
+
+    <footer class="ps-footer" style="background:#6f448b">
+        <div class="ps-container">
+            <div class="ps-footer__copyright">
+                <p style="color: #fff">© 2021 <a href="https://nigtech.net"> NigTech.</a> All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    <div id="back2top"><i class="pe-7s-angle-up"></i></div>
+    <div class="ps-site-overlay"></div>
+    <div id="loader-wrapper">
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+    <div class="ps-search" id="site-search"><a class="ps-btn--close" href="#"></a>
+        <div class="ps-search__content">
+            <form class="ps-form--primary-search" method="post" action="/search">
+                <input class="form-control" name="query" type="text" placeholder="Enter any topic/subject/course...">
+                <button><i class="aroma-magnifying-glass"></i></button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <script src="{% static 'main/plugins/jquery.min.js' %}"></script>
+    <script src="{% static 'main/plugins/nouislider/nouislider.min.js' %}"></script>
+    <script src="{% static 'main/plugins/popper.min.js' %}"></script>
+    <script src="{% static 'main/plugins/owl-carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'main/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'main/plugins/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'main/plugins/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'main/plugins/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'main/plugins/jquery.matchHeight-min.js' %}"></script>
+    <script src="{% static 'main/plugins/slick/slick/slick.min.js' %}"></script>
+    <script src="{% static 'main/plugins/jquery-bar-rating/dist/jquery.barrating.min.js' %}"></script>
+    <script src="{% static 'main/plugins/slick-animation.min.js' %}"></script>
+    <script src="{% static 'main/plugins/lightGallery-master/dist/js/lightgallery-all.min.js' %}"></script>
+    <script src="{% static 'main/plugins/sticky-sidebar/dist/sticky-sidebar.min.js' %}"></script>
+    <script src="{% static 'main/plugins/select2/dist/js/select2.full.min.js' %}"></script>
+    <script src="{% static 'main/plugins/gmap3.min.js' %}"></script>
+    <!-- custom scripts-->
+    <script src="{% static 'main/js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'main/plugins/deque-patterns.min.js' %}"></script>
+    
+</body>
+
+</html>
+
+
+
