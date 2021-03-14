@@ -1,31 +1,86 @@
-{% extends 'main/base.html' %}
+{% extends 'main/homebase.html' %}
 {% load static %}
   
 
 
 {% block content %}
-<div class="container">
 
-    <div class="row">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" placeholder="Username" required="required">
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password1" placeholder="Password" required="required">
-            </div>
-            <div class="form-group">
-                <label>Confirm Password</label>
-                <input type="password" name="password2" placeholder="Confirm Password" required="required">
-            </div>
-            <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Sign Up</button>
-        </form>
-    </div>
+<style type="text/css">
+    .ps-btn{
+        background-color: #ed017f !important;
+        color: #000000 !important;
+    }
+    .ps-btn:hover{
+        background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+</style>
 
-</div>
+<div class="ps-my-account">
+            <div class="container">
+                <form class="ps-form--account ps-tab-root" action=""  method="post">
+                    {% csrf_token %}
+                    <ul class="ps-tab-list">
+                        <li class="active"><a href="#sign-in">Sign-up</a></li>
+                    </ul>
+                    <div class="ps-tabs">
+                        <div class="ps-tab active" id="sign-in">
+                            <div class="ps-form__content">
+                                <h5>Log In Your Account</h5>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="username" placeholder="Username" required="required">
+                                </div>
+                                <div class="form-group form-forgot">
+                                    <input class="form-control" type="password" name="password1" placeholder="Password" required="required"><a href="">Forgot?</a>
+                                </div>
+                                <div class="form-group form-forgot">
+                                    <input class="form-control" type="password" name="password2" placeholder="Confirm Password" required="required"><a href="">Forgot?</a>
+                                </div>
+                                <div class="form-group">
+                                    <div class="ps-checkbox">
+                                        <input class="form-control" type="checkbox" id="remember-me" name="remember-me">
+                                        <label for="remember-me">Rememeber me</label>
+                                    </div>
+                                </div>
+                                <div class="form-group submtit">
+                                    <button class="ps-btn ps-btn--fullwidth">Login</button>
+                                </div>
+                            </div>
+                            <div class="ps-form__footer">
+                                <p>Connect with:</p>
+                                <ul class="ps-list--social">
+                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ps-tab" id="register">
+                            <div class="ps-form__content">
+                                <h5>Register An Account</h5>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Username or email address">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Password">
+                                </div>
+                                <div class="form-group submtit">
+                                    <button class="ps-btn ps-btn--fullwidth">Login</button>
+                                </div>
+                            </div>
+                            <div class="ps-form__footer">
+                                <p>Connect with:</p>
+                                <ul class="ps-list--social">
+                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a class="google" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </form>
 
 
 {% endblock %}

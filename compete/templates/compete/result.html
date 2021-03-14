@@ -1,28 +1,35 @@
-{% extends 'main/base.html' %}
+{% extends 'main/homebase.html' %}
 {% load static %}
       
 
 {% block content %}
 
-  <br />
-  <br />
-  <br />
+ <section class="ps-section--account ps-checkout">
 
-  <p>Study Resources for you!</p>
-  {% if competes %}
-	  {% for item in competes %}
-	  	<a href="{% url 'compete:result_detail' item.id %}">{{ item.title }}</a><br />
-	  {% endfor %}
+    <div class="container">
+
+  <div class="ps-top-categories">
+            <div class="ps-container">
+                <h3>Study Resources for you!</h3>
+                <div class="row">
+                {% if competes %}
+                  {% for item in competes %}
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category"><a href="{% url 'compete:result_detail' item.id %}"></a><br /><img src="{% static 'main/img/categories/1.jpg' %}" alt="">
+                           <p>{{ item.title }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                  {% else %}
+                    <p>Sorry, Nothing Yet!</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+</div>
 
 
-  {% else %}
-
-  		<p>Sorry, Nothing Yet!</p>
-
-  {% endif %}
-  <br />
-  <br />
-
+</section>
 
 
 {% endblock %}

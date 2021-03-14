@@ -1,0 +1,78 @@
+{% extends 'main/homebase.html' %}
+
+
+{% load static %}
+      
+
+{% block content %}
+
+<div class="ps-page--single ps-page--vendor">
+        <section class="ps-store-list">
+            <div class="container">
+                
+                <div class="ps-section__wrapper">
+                    <div class="ps-section__left">
+                        <aside class="widget widget--vendor">
+                            <h3 class="widget-title">Product Search</h3>
+                            <div class="form-group--icon">
+                                <input class="form-control" type="text" placeholder="Search..."><i class="icon-magnifier"></i>
+                            </div>
+                        </aside>
+                        <aside class="widget widget--vendor">
+                            <h3 class="widget-title">Store Categories</h3>
+                            <ul class="ps-list--arrow">
+                                <li><a href="#">Interior</a></li>
+                                <li><a href="#">Lighting</a></li>
+                                <li class="menu-item-has-children"><a href="#">Exterior</a>
+                                    <ul class="sub-menu ps-list--arrow">
+                                        <li><a href="#"> Custom Grilles</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">Wheels & Tires</a>
+                                    <ul class="sub-menu ps-list--categories">
+                                        <li><a href="#"> Custom Grilles</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Factory Wheels</a></li>
+                            </ul>
+                        </aside>
+                        <aside class="widget widget--vendor widget--open-time">
+                            <h3 class="widget-title"><i class="icon-clock3"></i> Store Hours</h3>
+                            <ul>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="ps-section__right">
+                       <div class="ps-post-comments">
+                <h3>Forum for {{ study_resource.title }}</h3>
+
+                {% for item in study_resource.chats.all %}
+                    <div class="ps-block--comment">
+                        <div class="ps-block__thumbnail"><img src="{{ item.contributor.image.url }}" alt=""></div>
+                        <div class="ps-block__content">
+                            <h5>{{ item.contributor }}<small>{{ item.pub_date }}</small></h5>
+                            <p>{{ item.chat }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <form class="ps-form--post-comment" method="post">
+                    {% csrf_token %}
+                    <h3>Say something..</h3>
+                    <div class="form-group">
+                        <textarea name="chat" class="form-control" rows="8" placeholder="Your comment *" required></textarea>
+                    </div>
+                    <div class="form-group submit">
+                        <button class="ps-btn">Post</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        </section>
+    {% endblock %}

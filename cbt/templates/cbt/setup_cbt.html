@@ -1,40 +1,129 @@
-{% extends 'main/base.html' %}
+{% extends 'main/homebase.html' %}
 {% load static %}
   
 
 
 {% block content %}
+
+<style type="text/css">
+    .ps-btn{
+        background-color: #9a0052 !important;
+        color: #fff;
+        transition: 0.25s;
+    }
+    .ps-btn:hover{
+        background-color: #ed017f !important;
+        color: #000000 !important;
+        transition: 0.25s;
+    }
+    .pagination .active a{
+        background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+    .pagination a:hover{
+        background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+    
+</style>
 <div class="container">
 
     <div class="row">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group">
-                <label>Number of Obj Questions</label>
-                <input type="text" name="question_count" required="required">
-            </div>
-            <div class="form-group">
-                <label>Number of Theory Questions</label>
-                <input type="text" name="theory_count" required="required">
-            </div>
-            <div class="form-group">
-                <label>Category</label>
-                <input type="text" name="category" required="required">
-            </div>
-            <div class="form-group">
-                <label>Level</label>
-                <input type="text" name="level" required="required">
-            </div>
-            <div class="form-group">
-                <label>Duration</label>
-                <input type="text" name="duration" required="required">
-            </div>
-
-            <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Start Test!</button>
-        </form>
+        
     </div>
 
 </div>
+
+ <section class="ps-section--account ps-checkout">
+
+    <div class="container">
+                             
+
+<div class="ps-section__content">
+                    <form class="ps-form--checkout" method="post">
+                        {% csrf_token %}
+                        <div class="ps-form__content">
+                            <div class="row">
+                                
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="ps-block--shipping">
+                                        
+                                        <h4>Setup Competition</h4>
+                                        <div class="ps-block--payment-method">
+                                            <div class="ps-tabs">
+                                                <div class="ps-tab active" id="visa">
+                                                    <form class="ps-form--visa" method="post">
+                                                        {% csrf_token %} 
+                                                        <div class="form-group">
+                                                            <label>Number of Objective Questions</label>
+                                                            <input name="question_count" class="form-control" type="text" placeholder="" required="required">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Number of Theory Questions</label>
+                                                            <input class="form-control" type="text" placeholder=""
+                                                            name="theory_count" required="required">
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <label></label>
+                                                                    <div class="row">
+                                                                        <div class="col-4">
+                                                                            <div class="form-group">
+                                                                                 <label>Category</label>
+                                                                                <select name="category" class="form-control">
+                                                                                    <option value="general">General</option>
+                                                                                    <option value="waec">Waec</option>
+                                                                                    <option value="jamb">Jamb</option>
+                                                                                    <option value="neco">Neco</option>
+                                                                                    <option value="gce">GCE</option>
+                                                                                    <option value="gmat">Gmat</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-4">
+
+                                                                            <div class="form-group">
+                                                                                 <label>Duration</label> 
+                                                                                <input class="form-control" type="text" placeholder="duration" name="duration" required="required">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-4">
+
+                                                                            <div class="form-group">
+                                                                                  <label>Level</label>
+                                                                                <select name="level" class="form-control">
+                                                                                    <option value="simple">Simple</option>
+                                                                                    <option value="intermediate">Intermediate</option>
+                                                                                    <option value="hard">Hard</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="form-group submit">
+                                                            <button class="ps-btn ps-btn--fullwidth">Start Test!</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
 
 
 {% endblock %}

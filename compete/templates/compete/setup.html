@@ -1,54 +1,120 @@
-{% extends 'main/base.html' %}
+{% extends 'main/homebase.html' %}
 {% load static %}
   
 
 
 {% block content %}
-<div class="container">
 
-    <div class="row">
-        <p>Join Competition:</p>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group">
-                <label>Enter Competition code</label>
-                <input type="text" name="compete_slug" required="required">
-            </div>
-            <a class="au-btn au-btn--block au-btn--green m-b-20" href="/join-compete">join!</a>
-        </form>
+<style type="text/css">
+    .ps-btn{
+        background-color: #ed017f !important;
+    }
+    .ps-btn:hover{
+        background-color: #9a0052 !important;
+        color: #fff;
+    }
+</style>
 
 
+ <section class="ps-section--account ps-checkout">
 
-        <br />
-        <p>Setup Competition</p>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="form-group">
-                <label>Audience</label>
-                <input type="text" name="audience" required="required">
-            </div>
-            <div class="form-group">
-                <label>Number of Obj Questions</label>
-                <input type="text" name="question_count" required="required">
-            </div>
-            <div class="form-group">
-                <label>Category</label>
-                <input type="text" name="category" required="required">
-            </div>
-            <div class="form-group">
-                <label>Level</label>
-                <input type="text" name="level" required="required">
-            </div>
-            <div class="form-group">
-                <label>Duration</label>
-                <input type="text" name="duration" required="required">
-            </div>
+    <div class="container">
+                             
 
-            <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Submit!</button>
-        </form>
-    </div>
+<div class="ps-section__content">
+                    <form class="ps-form--checkout" method="post">
+                        {% csrf_token %}
+                        <div class="ps-form__content">
+                            <div class="row">
+                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                                    <div class="ps-block--shipping">
+                                        <h4>Join Competition</h4>
+                                        <div class="ps-block__content">
+                                            <div class="ps-block--payment-method">
+                                                <div class="ps-tabs">
+                                                    <div class="ps-tab active" id="visa">
+                                                        {% csrf_token %}
+                                                        <form class="ps-form--visa" method="post">
+                                                                                             
+                                                            <div class="form-group">
+                                                                <label>Enter Competition code</label>
+                                                                <input name="compete_slug" class="form-control" type="text" placeholder="" required="required">
+                                                            </div>
+                                                            <div class="form-group submit">
+                                                                <button class="ps-btn ps-btn--fullwidth">Join</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
+                                    <div class="ps-block--shipping">
+                                        
+                                        <h4>Setup Competition</h4>
+                                        <div class="ps-block--payment-method">
+                                            <div class="ps-tabs">
+                                                <div class="ps-tab active" id="visa">
+                                                    <form class="ps-form--visa" method="post">
+                                                        {% csrf_token %} 
+                                                        <div class="form-group">
+                                                            <label>Audience</label>
+                                                            <input name="audience" class="form-control" type="text" placeholder="" required="required">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Number of Objective Questions</label>
+                                                            <input class="form-control" type="text" placeholder=""
+                                                            name="question_count" required="required">
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-8">
+                                                                <div class="form-group">
+                                                                    <label></label>
+                                                                    <div class="row">
+                                                                        <div class="col-6">
+                                                                            <div class="form-group">
+                                                                                <input class="form-control" type="text" placeholder="Category" name="category" required="required">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-6">
 
-</div>
+                                                                            <div class="form-group">
+                                                                                 
+                                                                                <input class="form-control" type="text" name="level" placeholder="level" required="required">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <div class="form-group">
+                                                                    <label></label>
+                                                                    <input class="form-control" type="text" placeholder="duration" name="duration" required="required">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group submit">
+                                                            <button class="ps-btn ps-btn--fullwidth">Submit</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="ps-tab" id="paypal"><a class="ps-btn" href="#">Proceed with Paypal</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
 
 
 {% endblock %}

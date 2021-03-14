@@ -3,44 +3,59 @@
 <html lang="zxx" class="no-js">
 
 <head>
-	<!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Favicon-->
-	<link rel="shortcut icon" href="img/fav.png">
-	<!-- Author Meta -->
-	<meta name="author" content="codepixer">
-	<!-- Meta Description -->
-	<meta name="description" content="">
-	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
-	<!-- meta character set -->
-	<meta charset="UTF-8">
-	<!-- Site Title -->
-	<title>Examination</title>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="codepixer">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Examination</title>
 
-	<!--
-			Google Font
-			============================================= -->
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
+    <!--
+            Google Font
+            ============================================= -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500i" rel="stylesheet">
 
-	<!--
-			CSS
-			============================================= -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
-	<link rel="stylesheet" href="{% static 'cbt_main/css/linearicons.css' %}">
-	<link rel="stylesheet" href="{% static 'cbt_main/css/font-awesome.min.css' %}">
-	<link rel="stylesheet" href="{% static 'cbt_main/css/bootstrap.css' %}">
-	<link rel="stylesheet" href="{% static 'cbt_main/css/magnific-popup.css' %}">
-	<link rel="stylesheet" href="{% static 'cbt_main/css/nice-select.css' %}">
-	<link rel="stylesheet" href="{% static 'cbt_main/css/animate.min.css' %}">
-	<link rel="stylesheet" href="{% static 'cbt_main/css/owl.carousel.css' %}">
-	<link rel="stylesheet" href="{% static 'cbt_main/css/main.css' %}">
-	<meta charset="utf-8">
+    <!--
+            CSS
+            ============================================= -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css">
+    <link rel="stylesheet" href="{% static 'cbt_main/css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'cbt_main/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'cbt_main/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'cbt_main/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'cbt_main/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'cbt_main/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'cbt_main/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'cbt_main/css/main.css' %}">
+    <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="keywords" content="">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/plugins/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/fonts/Linearicons/Linearicons/Font/demo-files/demo.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/owl-carousel/assets/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/owl-carousel/assets/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/slick/slick/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/nouislider/nouislider.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/lightGallery-master/dist/css/lightgallery.min.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css' %}">
+    <link rel="stylesheet" href="{% static 'main/plugins/select2/dist/css/select2.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'main/css/autopart.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/vendor.css' %}">
+
 
 </head>
 
@@ -70,7 +85,7 @@
   border: 2px solid #222;
   display: inline-block;
   border-radius: 3px;
-  background: #009900 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+  background: #9A0052 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
   cursor: pointer;
 
   transition: background-size 0.2s ease;
@@ -90,112 +105,110 @@
 
 <body>
 
-	<!-- Start Header Area -->
-	<header id="header">
+    <!-- Start Header Area -->
+    <header id="header">
 
-		<div class="container">
-		<div class="row d-flex" style="justify-content: right; float: right;">
-		<nav id="nav-menu-container" style="justify-content: right; float: right;">
-			<ul class="nav-menu">
-				
-				<li><div class="timer" onload="timer({{ exam.duration }})">
-				  <div>Section</div>
-				  <div class="time">
-				    <strong>Time left: <span id="time">Loading...</span></strong>
-				  </div>
-				</li>
-				
-				<li><p id="ray_counter"></p></li>
-			
-			</ul>
-		</nav>
-			</div>
-		</div>
-	</header>
-	<!-- End Header Area -->
-
-
+        <div class="container">
+        <div class="row d-flex" style="justify-content: right; float: right;">
+        <nav id="nav-menu-container" style="justify-content: right; float: right;">
+            <ul class="nav-menu">
+                
+                <li><div class="timer" onload="timer({{ exam.duration }})">
+                  <div style="color: #9a0052">Section</div>
+                  <div class="time">
+                    <strong style="color: #9a0052"><i class="icon-timer"> </i> Time left: <span id="time">Loading...</span></strong>
+                  </div>
+                </li>
+                
+                <li><p id="ray_counter"></p></li>
+            
+            </ul>
+        </nav>
+            </div>
+        </div>
+    </header>
+    <!-- End Header Area -->
 
 
 
-			{% block content %}
+
+
+            {% block content %}
 
 
 
-			{% endblock %}
+            {% endblock %}
 
 
-	
+    
 
 <!-- Start Footer Area -->
-	<footer class="footer-area">
-		<div class="container">
-			<div class="row">
-				
-			</div>
-			<div class="footer-bottom row align-items-center">
-				<p class="footer-text m-0 col-lg-6 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-				<div class="col-lg-4 col-md-12 footer-social">
-					<a href="#"><i class="fa fa-facebook"></i></a>
-					<a href="#"><i class="fa fa-twitter"></i></a>
-					<a href="#"><i class="fa fa-dribbble"></i></a>
-					<a href="#"><i class="fa fa-behance"></i></a>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- End Footer Area -->
+  <footer class="footer-area" style="background-color: transparent;">
+    <div class="container">
+      <div class="row">
+        
+      </div>
+      <div class="footer-bottom row align-items-center">
+        <p class="footer-text m-0 col-lg-6 col-md-12" style="justify-content: space-between; color: #000000; font-size: 14px;"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+© 2021 Nigtech.net. All Rights Reserved</a>
 
-	<!-- ####################### Start Scroll to Top Area ####################### -->
-	<div id="back-top">
-		<a title="Go to Top" href="#"></a>
-	</div>
-	<!-- ####################### End Scroll to Top Area ####################### -->
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+
+        <br><br>
+      </div>
+    </div>
+    <br><br>
+  </footer>
+  <!-- End Footer Area -->
+
+    <!-- ####################### Start Scroll to Top Area ####################### -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"></a>
+    </div>
+    <!-- ####################### End Scroll to Top Area ####################### -->
 
 </body>
 
-	<script src="{% static 'cbt_main/js/vendor/jquery-2.2.4.min.js' %}"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-	 crossorigin="anonymous"></script>
-	<script src="{% static 'cbt_main/js/vendor/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-	<script src="{% static 'cbt_main/js/easing.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/hoverIntent.js' %}"></script>
-	<script src="{% static 'cbt_main/js/superfish.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/jquery.ajaxchimp.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/jquery.magnific-popup.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/owl.carousel.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/owl-carousel-thumb.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/jquery.sticky.js' %}"></script>
-	<script src="{% static 'cbt_main/js/jquery.nice-select.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/parallax.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/waypoints.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/wow.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/jquery.counterup.min.js' %}"></script>
-	<script src="{% static 'cbt_main/js/mail-script.js' %}"></script>
-	<script src="{% static 'cbt_main/js/main.js' %}"></script>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="{% static 'cbt_main/js/vendor/jquery-2.2.4.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+     crossorigin="anonymous"></script>
+    <script src="{% static 'cbt_main/js/vendor/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+    <script src="{% static 'cbt_main/js/easing.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/hoverIntent.js' %}"></script>
+    <script src="{% static 'cbt_main/js/superfish.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/jquery.ajaxchimp.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/owl-carousel-thumb.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/jquery.sticky.js' %}"></script>
+    <script src="{% static 'cbt_main/js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/parallax.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/waypoints.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/wow.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'cbt_main/js/mail-script.js' %}"></script>
+    <script src="{% static 'cbt_main/js/main.js' %}"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="{% static 'cbt_main/js/kinetic.js' %}"></script>
 <script type="text/javascript" src="{% static 'cbt_main/jquery.final-countdown.js' %}"></script>
 <script>
-	var time = {{ exam.duration }};
-	setInterval(function() {
-	  var seconds = time % 60;
-	  var minutes = (time - seconds) / 60;
-	  if (seconds.toString().length == 1) {
-	    seconds = "0" + seconds;
-	  }
-	  if (minutes.toString().length == 1) {
-	    minutes = "0" + minutes;
-	  }
-	  document.getElementById("time").innerHTML = minutes + ":" + seconds;
-	  time--;
-	  if (time == 0) {
-	    window.location.href = "{% url 'main:time_up_submit' %}";
-	  }
-	}, 1000);
+    var time = {{ exam.duration }};
+    setInterval(function() {
+      var seconds = time % 60;
+      var minutes = (time - seconds) / 60;
+      if (seconds.toString().length == 1) {
+        seconds = "0" + seconds;
+      }
+      if (minutes.toString().length == 1) {
+        minutes = "0" + minutes;
+      }
+      document.getElementById("time").innerHTML = minutes + ":" + seconds;
+      time--;
+      if (time == 0) {
+        window.location.href = "{% url 'main:time_up_submit' %}";
+      }
+    }, 1000);
 </script>
 
 </body>

@@ -6,8 +6,12 @@ from django.utils import timezone
 # Create your models here.
 class AppUser(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	name = models.CharField(max_length=500)
-	account_type = models.CharField(max_length=500)
+	image = models.FileField(upload_to='resource/profile_images/', blank=True, default="resource/default.jpeg")
+	full_name = models.CharField(max_length=500, default="none")
+	phone = models.CharField(max_length=500, default="none")
+	email = models.CharField(max_length=500, default="none")
+	bio = models.TextField(default="none")
+	account_type = models.CharField(max_length=500, default="none")
 	status = models.BooleanField(default=False)
 
 	pub_date = models.DateTimeField(default=timezone.now)

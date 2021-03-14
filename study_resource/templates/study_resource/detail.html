@@ -1,56 +1,409 @@
-{{ study_resource.title }}
-<br />
-{{ study_resource.description }}
-<br />
+{% extends 'main/base.html' %}
 
-{{ study_resource.category }}
-<br />
 
-{{ study_resource.pub_date }}
-<br />
+{% load static %}
+      
 
-<br />
-<p>Contents for this Resource</p>
-{% for item in study_resource.contents.all %}
- <small>{{ item.content }}</small><br />
-{% endfor %}
-<br />
+{% block content %}
 
-<br />
-<p>Ebooks for this Resource</p>
-{% for item in study_resource.contents.all %}
- <small>{{ item.ebook.url }}</small><br />
-{% endfor %}
-<br />
+{% include "main/header.html" %}
 
-<br />
-<p>Videos for this Resource</p>
-{% for item in study_resource.videos.all %}
- <small>{{ item.video }}</small><br />
-{% endfor %}
-<br />
+<style type="text/css">
+    .ps-btn{
+        background-color: #9a0052 !important;
+        color: #fff;
+        transition: 0.25s;
+    }
+    a .ps-btn:hover{
+        background-color: #ed017f !important;
+   		color: black;
+   		transition: 0.25s;
+    }
+	.pagination .active a{
+        background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+    .pagination a:hover{
+       	background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+    
+</style>
 
-<br />
-<p>Audios for this Resource</p>
-{% for item in study_resource.audios.all %}
- <small>{{ item.audio }}</small><br />
-{% endfor %}
-<br />
+<div class="ps-page--single ps-page--vendor">
+        <section class="ps-store-list">
+            <div class="container">
+                <aside class="ps-block--store-banner">
+                    <div class="ps-block__content bg--cover" data-background="{% static 'main/img/slider/home-1/frati13.gif' %}">
+                        <h4 style="color:#fff">{{ study_resource.title }}</h4><a class="ps-block__inquiry" href="#"><i class="fa fa-question"></i> Inquiry</a>
+                    </div>
+                    <div class="ps-block__user" style="background-color: #9a0052 !important;">
+                        <div class="ps-block__user-avatar"><img src="{% static 'main/img/5.jpg' %}" alt="">
+                            <p>Author</p>
+                        </div>
+                        <a href="{% url 'study_resource:contribute_chat' study_resource.id %}">Join Forum</a>
+                        <div class="ps-block__user-content">
+                            <p><i class="icon-map-marker"></i> {{ study_resource.description }}</p>
+                            <p><i class="icon-envelope"></i> {{ study_resource.category }} | {{ study_resource.pub_date }}</p>
+                            <p>Conservations: {{ study_resource.chats.count }}</p>
+                            <p>Ebooks: {{ study_resource.ebooks.count }}</p>
+                            <p>Contents: {{ study_resource.contents.count }}</p>
+                            <p>videos: {{ study_resource.videos.count }}</p>
+                            <p>links: {{ study_resource.links.count }}</p>
+                            <p>image: {{ study_resource.images.count }}</p>
 
-<br />
-<p>Images for this Resource</p>
-{% for item in study_resource.images.all %}
- <small>{{ item.image.url }}</small><br />
-{% endfor %}
-<br />
+                        </div>
+                    </div>
+                </aside>
+                <div class="ps-section__wrapper">
+                    <div class="ps-section__left">
+                        <aside class="widget widget--vendor">
+                            <h3 class="widget-title">Product Search</h3>
+                            <div class="form-group--icon">
+                                <input class="form-control" type="text" placeholder="Search..."><i class="icon-magnifier"></i>
+                            </div>
+                        </aside>
+                        <aside class="widget widget--vendor">
+                            <h3 class="widget-title">Store Categories</h3>
+                            <ul class="ps-list--arrow">
+                                <li><a href="#">Interior</a></li>
+                                <li><a href="#">Lighting</a></li>
+                                <li class="menu-item-has-children"><a href="#">Exterior</a>
+                                    <ul class="sub-menu ps-list--arrow">
+                                        <li><a href="#"> Custom Grilles</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">Wheels & Tires</a>
+                                    <ul class="sub-menu ps-list--categories">
+                                        <li><a href="#"> Custom Grilles</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Factory Wheels</a></li>
+                            </ul>
+                        </aside>
+                        <aside class="widget widget--vendor widget--open-time">
+                            <h3 class="widget-title"><i class="icon-clock3"></i> Store Hours</h3>
+                            <ul>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="ps-section__right">
+                        <nav class="ps-store-link">
+                            <ul>
+                                <li class="active"><a href="store-detail.html">Products</a></li>
+                                <li><a href="store-detail-info.html">About</a></li>
+                                <li><a href="store-detail.html">Policies</a></li>
+                                <li><a href="store-detail.html">Reviews(0)</a></li>
+                            </ul>
+                        </nav>
+                        <div class="ps-shopping ps-tab-root">
+                            <div class="ps-shopping__header">
+                                <p><strong>Top Contents </strong></p>
+                                <div class="ps-shopping__actions">
+                                    <div class="ps-shopping__view">
+                                        <p>View</p>
+                                        <ul class="ps-product__actions">
+                                            <li><a href="{% url 'study_resource:contribute_chat' study_resource.id %}" data-toggle="tooltip" data-placement="top" title="Go to Chat Forum"><i style="color: #9a0052" class="icon-alarm-ringing"></i></a></li>
+                                            <li><a href="#tab-2"><i class="icon-list4"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
 
-<br />
-<p>Links for this Resource</p>
-{% for item in study_resource.links.all %}
- <small>{{ item.link }}</small><br />
-{% endfor %}
-<br />
 
-<hr>
+                            <style type="text/css">
+                                .hover-in-shadow{
+                                    
+                                    background-color: #fff;
+                                    padding: 15px;
+                                    margin: 15px;
+                                    border-radius: 10px !important;
+                                }
+                                
+                                .ps-documentx p:hover{
+                                    
+                                    color: #fff;
+                                    margin-left: 25px;
+                                }
+                            </style>
+                            <div class="ps-tabs" style="background-color: #f5f5f5">
+                                <div class="ps-tab active" id="tab-1">
+                                    <div class="ps-shopping-product ">
+                                        <div class="row">
+                                        	<div class="ps-documentx " style="margin: 15px;">
+                                                <br>
+                                                {% for item in study_resource.contents.all %}
+                                                <p class="contact-item outer-shadow hover-in-shadow" style="margin: 15px; border-radius: 0% !important"><i class="icon-document"></i> {{ item.content|truncatewords:10 }} <br />by {{ item.contributor }}</p>
+                                                <a href="{% url 'study_resource:content_detail' item.id %}"> ..continue reading</a>
+                                                {% endfor %}
+                                            </div>
 
-<a href="{% url 'study_resource:contribute_resource' study_resource.id %}">Contribute to this Resource</a>
+
+
+                                            
+                                        </div>
+                                    <div class="ps-pagination" >
+                                    	
+                                    	<a href="{% url 'study_resource:contribute_content' study_resource.id %}"><button class="ps-btn">Contribute to this Content</button></a>
+                                    </div>
+
+                                    
+
+                                    <div class="ps-pagination">
+                                        <ul class="pagination">
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">Next Page<i class="icon-chevron-right"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <br>
+                                
+                                    </div>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div class="ps-shopping ps-tab-root">
+                            <div class="ps-shopping__header">
+                                <p><strong>Ebooks for this Resource</strong></p>
+                                <div class="ps-shopping__actions">
+                                    <div class="ps-shopping__view">
+                                        <p>View</p>
+                                        <ul class="ps-tab-list">
+                                            <li class="active"><a href="#tab-1"><i class="icon-grid"></i></a></li>
+                                            <li><a href="#tab-2"><i class="icon-list4"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <style type="text/css">
+                                .ps-documentxx{
+                                    margin: 10px;
+                                }
+                                .hover-in-shadow{
+                                    border-radius: 0 15% !important;
+
+                                }
+                                .hover-in-shadow:hover{
+                                    border-radius: 15% 0 !important;
+                                    overflow: none;
+                                }
+                            </style>
+                            <div class="ps-tabs" style="background-color: #f5f5f5">
+                                <div class="ps-tab active" id="tab-1">
+                                    <div class="ps-shopping-product">
+                                        <div class="row">
+                                            {% for item in study_resource.ebooks.all %}
+                                            <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6 contact-form">
+                                                <a href="{{ item.ebook.url }}">
+                                                <div class="ps-documentxx  contact-item outer-shadow hover-in-shadow" style="background-color: #fff">
+                                                    <img src="{% static 'main/img/5aa3ae359fc609199d0ff247.png' %}" alt="" style="margin-bottom: -25px;" />
+                                                    
+                                            <p style="color: #000000; text-align: center;">{{ study_resource.title }} ebook by {{ item.contributor }}</p>
+                                                    <br>
+                                                    
+                                                </div>
+                                                </a>
+                                            </div>
+                                            {% endfor %} 
+                                    </div>
+
+                                    <div class="ps-pagination" >
+                                    	
+                                    	<a href="{% url 'study_resource:contribute_ebook' study_resource.id %}"><button class="ps-btn">Contribute to Ebook</button></a>
+
+                                    </div>
+
+                                    <div class="ps-pagination">
+                                        <ul class="pagination">
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">Next Page<i class="icon-chevron-right"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <br>
+                                </div>
+                            	</div>
+                        	</div>
+                    		</div>
+
+                            <br><br>
+
+                            <div class="ps-shopping ps-tab-root">
+                            <div class="ps-shopping__header">
+                                <p><strong>Links for this Resource</strong></p>
+                                <div class="ps-shopping__actions">
+                                    <div class="ps-shopping__view">
+                                        <p>View</p>
+                                        <ul class="ps-tab-list">
+                                            <li class="active"><a href="#tab-1"><i class="icon-grid"></i></a></li>
+                                            <li><a href="#tab-2"><i class="icon-list4"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="ps-tabs" style="background-color: #f5f5f5">
+                                <div class="ps-tab active" id="tab-1">
+                                    <div class="ps-shopping-product">
+                                
+                                        <div class="row">
+                                        	{% for item in study_resource.links.all %}
+                                            <div class=" col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6 contact-item "><a href="{{ item.link }">
+                                                <div class="contact-item ps-product contact-item-inner contact-item outer-shadow " style="color: #000000; margin: 15px;">
+                                                    <div class="ps-product__thumbnail"><a href="https://{{ item.link }}">{{ item.link }}
+                                                    </div>
+                                                    by {{ item.contributor }}
+                                                    <div class="ps-product__container"><a style="color: #fff" class="ps-product__vendor" href="{{ item.link }}"></a>
+                                                        
+                                                        
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </a>
+                                            {% endfor %}
+                                            
+                                    </div>
+                                    <div class="ps-pagination" >
+                                    	
+                                    	<a href="{% url 'study_resource:contribute_link' study_resource.id %}"><button class="ps-btn">Contribute to this Links</button></a>
+                                    	
+                                    </div>
+
+                                    <div class="ps-pagination">
+                                        <ul class="pagination">
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">Next Page<i class="icon-chevron-right"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <br>
+                                </div>
+                                
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ps-shopping ps-tab-root">
+                            <div class="ps-shopping__header">
+                                <p><strong>Videos for this Resource</strong></p>
+                                <div class="ps-shopping__actions">
+                                    <div class="ps-shopping__view">
+                                        <p>View</p>
+                                        <ul class="ps-tab-list">
+                                            <li class="active"><a href="#tab-1"><i class="icon-grid"></i></a></li>
+                                            <li><a href="#tab-2"><i class="icon-list4"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            
+                           <div class="ps-section__content">
+                            <div class="row">
+                                {% for item in study_resource.videos.all %}
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6 ">
+                                    <div class="ps-block--category-room">
+                                        <div class="ps-block__thumbnail"><a href="{{ item.video.url }}"><img src="{% static 'main/img/5aa3ae359fc609199d0ff247.png' %}" alt="resource image"></a></div>
+                                        by {{ item.contributor }}
+                                        
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="ps-pagination" >
+                                        
+                                        <a href="{% url 'study_resource:contribute_video' study_resource.id %}"><button class="ps-btn">Contribute to Videos</button></a>
+                                        
+                                    </div>
+
+
+                                    <div class="ps-pagination">
+                                        <ul class="pagination">
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">Next Page<i class="icon-chevron-right"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <br>
+
+                                    <div class="ps-shopping ps-tab-root">
+                            <div class="ps-shopping__header">
+                                <p><strong>Images for this Resource</strong></p>
+                                <div class="ps-shopping__actions">
+                                    <div class="ps-shopping__view">
+                                        <p>View</p>
+                                        <ul class="ps-tab-list">
+                                            <li class="active"><a href="#tab-1"><i class="icon-grid"></i></a></li>
+                                            <li><a href="#tab-2"><i class="icon-list4"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            
+                           <div class="ps-section__content">
+                            <div class="row">
+                                {% for item in study_resource.images.all %}
+                                <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-6 ">
+                                    <div class="ps-block--category-room ps-product__gallery" data-arrow="true">
+                                        <div class="ps-block__thumbnail item"><a href="{{ item.image.url }}"><img src="{{ item.image.url }}" alt="resource image"></a></div>
+                                    <div class="ps-block__content"><a href="#">Image by {{ item.contributor }}</a></div>
+
+
+                                </div>
+
+                            </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="ps-pagination" >
+                                        
+                                        <a href="{% url 'study_resource:contribute_image' study_resource.id %}"><button class="ps-btn">Contribute to these images</button></a>
+                                        
+                                    </div>
+
+
+                                    <div class="ps-pagination">
+                                        <ul class="pagination">
+                                            <li class="active"><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">Next Page<i class="icon-chevron-right"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <br>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+                                </div>
+
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        
+                    <!------contact section ends--------->
+    </div>
+
+    {% endblock %}

@@ -4,97 +4,112 @@
 {% block content %}
 
 
-
+<style type="text/css">
+    .btn-success{
+        background-color: #9A0052;
+        color: #fff;
+    }
+    .btn-success:hover{
+        background-color: #ed017f;
+        color: #000000;
+    }
+</style>
 
 
 <!-- Start Faculty Area -->
-<section class="faculty-area section-gap" style="margin-top: -65px;">
-	<div class="container">
-		<div class="row justify-content-center">
+<section class="faculty-area section-gap" style="margin-top: -65px; background-color: #fff">
+    <div class="container">
+        <div class="row justify-content-center">
 
-	
+    
 
-		<form class="container" method="post" enctype="multipart/form-data">
+        <form class="container" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-		{% if cbt_questions %}
-			{% for item, count in cbt_questions %}
-				
-					<div class="col-lg-12">
-						<div class="section-title">	
+        {% if cbt_questions %}
+            {% for item, count in cbt_questions %}
+            <div class="col-lg-12" style="background-color: #f5f5f5; margin-bottom:">
+                <br><br>
+                
+                    <div class="col-lg-10" style="align-items: center; margin: auto;">
+                        <div class="section-title" style="align-items: center;"> 
 
-							<blockquote class="generic-blockquote" style="background: #fff">
-								<h1>Q{{ count }}:</h1>{{ item.title}}
+                            <blockquote class="generic-blockquote" style="background: #fff">
+                                <h1>Q{{ count }}:</h1>{{ item.title}}
 
-							</blockquote>
-							<br>
-							<div class="row  d-flex align-items-center">
+                            </blockquote>
+                            <br>
+                            <div class="row  d-flex align-items-center">
 
-								<div class="col-lg-12 col-md-6 col-sm-12 single-faculty">
-									<div class="thumb d-flex">
-										<label class="custom-checkbox">
-											<input type="radio" name="selected_answer_{{ count }}" value="{{ count }}_a" style="margin-bottom: -10px">
-											<span class="checkmark" style="text-align: center; text-transform: capitalize; font-size: 28px; padding-bottom: -10px">A</span>
-										</label>
-										<p style="margin-top: 15px; margin-left: 10px">
-											 {{ item.answer_a }}
-										</p>
-									</div>
-								</div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 single-faculty">
+                                    <div class="thumb d-flex"  style="background: #fff; padding-left: 10px;">
+                                        <label class="custom-checkbox">
+                                            <input type="radio" name="selected_answer_{{ count }}" value="{{ count }}_a" style="margin-bottom: -10px; margin-left: 5px;">
+                                            <span class="checkmark" style="text-align: center; text-transform: capitalize; font-size: 18px; padding-bottom: 10px">A</span>
+                                        </label>
+                                        <p style="margin-top: 15px; margin-left: 10px">
+                                             {{ item.answer_a }}
+                                        </p>
+                                    </div>
+                                </div>
 
-								<div class="col-lg-12 col-md-6 col-sm-12 single-faculty">
-									<div class="thumb d-flex">
-										<label class="custom-checkbox">
-											<input type="radio" name="selected_answer_{{ count }}" value="{{ count }}_b">
-											<span class="checkmark" style="text-align: center; font-size: 28px;">B</span>
-										</label>
-										<p style="margin-top: 15px; margin-left: 10px">
-											 {{ item.answer_b }}
-										</p>
-									</div>
-								</div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 single-faculty">
+                                    <div class="thumb d-flex"  style="background: #fff; padding-left: 10px;">
+                                        <label class="custom-checkbox">
+                                            <input type="radio" name="selected_answer_{{ count }}" value="{{ count }}_b">
+                                            <span class="checkmark" style="text-align: center; text-transform: capitalize; font-size: 18px; padding-bottom: 10px">B</span>
+                                        </label>
+                                        <p style="margin-top: 15px; margin-left: 10px">
+                                             {{ item.answer_b }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <div class="col-lg-6 col-md-6 col-sm-12 single-faculty">
+                                    <div class="thumb d-flex"  style="background: #fff; padding-left: 10px;">
+                                        <label class="custom-checkbox">
+                                            <input type="radio" name="selected_answer_{{ count }}" value="{{ count }}_c">
+                                            <span class="checkmark" style="text-align: center; text-transform: capitalize; font-size: 18px; padding-bottom: 10px;">C</span>
+                                        </label>
+                                        <p style="margin-top: 15px; margin-left: 10px">
+                                             {{ item.answer_c }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <br><br><br>
 
-								<div class="col-lg-12 col-md-6 col-sm-12 single-faculty">
-									<div class="thumb d-flex">
-										<label class="custom-checkbox">
-											<input type="radio" name="selected_answer_{{ count }}" value="{{ count }}_c">
-											<span class="checkmark" style="text-align: center; text-transform: capitalize; font-size: 28px;">C</span>
-										</label>
-										<p style="margin-top: 15px; margin-left: 10px">
-											 {{ item.answer_c }}
-										</p>
-									</div>
-								</div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 single-faculty">
+                                    <div class="thumb d-flex"  style="background: #fff; padding-left: 10px;">
+                                        <label class="custom-checkbox">
+                                            <input type="radio" name="selected_answer_{{ count }}" value="{{ count }}_d">
+                                            <span class="checkmark" style="text-align: center; text-transform: capitalize; font-size: 18px; padding-bottom: 10px">D</span>
+                                        </label>
+                                        <p style="margin-top: 15px; margin-left: 10px">
+                                             {{ item.answer_d }}
+                                        </p>
+                                    </div>
+                                </div>
 
-								<div class="col-lg-12 col-md-6 col-sm-12 single-faculty">
-									<div class="thumb d-flex">
-										<label class="custom-checkbox">
-											<input type="radio" name="selected_answer_{{ count }}" value="{{ count }}_d">
-											<span class="checkmark" style="text-align: center; font-size: 28px;">D</span>
-										</label>
-										<p style="margin-top: 15px; margin-left: 10px">
-											 {{ item.answer_d }}
-										</p>
-									</div>
-								</div>
+                            </div>
 
-							</div>
+                        </div>
+                    </div>
 
-						</div>
-					</div>
-					<hr>
-					<br />
+                    <hr>
+                    <br />
 
 
-			{% endfor %}
-		{% endif %}
-	
+            {% endfor %}
+        {% endif %}
+    
+        
+         <button class="btn btn-success" type="submit" style="margin: auto; align-items: center;">Proceed to Section B</button>
+         <br><br>
 
-		 <button class="btn btn-success" type="submit">Proceed to Section B</button>
+    </form>
 
-	</form>
-
-		</div>
-	</div>
+        </div>
+    </div>
+    <br>
 </section>
 
 

@@ -1,20 +1,163 @@
 {% extends 'main/base.html' %}
 {% load static %}
-      
-
 {% block content %}
 
-  <br />
-  <br />
-  <br />
+{% include "main/header.html" %}
 
-  <p>Study Resources for you!</p>
-  {% for item in study_resources %}
-  	<a href="{% url 'study_resource:resource_detail' item.id %}">{{ item.title }}</a><br />
-  {% endfor %}
-  <br />
-  <br />
+<div id="homepage-1"> 
+        <div class="ps-home-banner ps-home-banner--1">
+            <div class="ps-container">
+                <div class="ps-section">
+                    <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+                        <div class="ps-banner"><a href="#"><img src="{% static 'main/img/slider/home-1/frati13.gif' %}" alt=""></a></div>
+                        <div class="ps-banner"><a href="#"><img src="{% static 'main/img/slider/home-1/frati13.gif' %}" alt=""></a></div>
+                        <div class="ps-banner"><a href="#"><img src="{% static 'main/img/slider/home-1/frati13.gif' %}" alt=""></a></div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+ <section class="contact-section section" id="contact">           
+<div class="ps-top-categories">
+            <div class="ps-container">
+                <div class="section-title">
+                    <h2 data-heading="Resources">Study Resources for You</h2>
+                </div>
+                <div class="row">
+                	{% for item in study_resources %}
+                    <div class="contact-item col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{% url 'study_resource:resource_detail' item.slug %}"></a><img  style="height: 100px; width: 180" src="{% static 'main/img/Rb726b85a8621f4b7f0f50b5e8d25c01a.png' %}" alt="">
+                            <p>{{ item.title }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
+ <section class="contact-section section" id="contact">           
+<div class="ps-top-categories">
+            <div class="ps-container">
+                <div class="section-title">
+                    <h2 data-heading="Resources">Ebooks on demand</h2>
+                </div>
+                <div class="row">
+                    {% for item in ebooks %}
+                    <div class="contact-item col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <a href="{{ item.ebook.url }}">
+                        <div class="ps-documentxx  contact-item outer-shadow hover-in-shadow" style="background-color: #fff">
+                            <img src="{% static 'main/img/5aa3ae359fc609199d0ff247.png' %}" alt="" style="margin-bottom: -25px;" />
+                            <br />
+                    <p style="color: #000000; text-align: center;">{{ study_resource.title }} ebook by {{ item.contributor }}</p>
+                            <br>
+                            
+                        </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+ <section class="contact-section section" id="contact">           
+<div class="ps-top-categories">
+            <div class="ps-container">
+                <div class="section-title">
+                    <h2 data-heading="Resources">Hot Forums</h2>
+                </div>
+                <div class="row">
+                    {% for item in forums %}
+                    <div class="contact-item col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{% url 'study_resource:contribute_chat' item.id %}"></a><img  style="height: 100px; width: 180" src="{% static 'main/img/Rb726b85a8621f4b7f0f50b5e8d25c01a.png' %}" alt="">
+                            <p>{{ item.title }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+ <section class="contact-section section" id="contact">           
+<div class="ps-top-categories">
+            <div class="ps-container">
+                <div class="section-title">
+                    <h2 data-heading="Resources">Important Links</h2>
+                </div>
+                <div class="row">
+                    {% for item in links %}
+                    <div class="contact-item">
+                            <a href="{{ item.link }">
+                            <div class="contact-item ps-product contact-item-inner contact-item outer-shadow " style="color: #000000; margin: 15px;">
+                                <div class="ps-product__thumbnail"><a href="https://{{ item.link }}">{{ item.link }}
+                                </div>
+                                by {{ item.contributor }}
+                                <div class="ps-product__container"><a style="color: #fff" class="ps-product__vendor" href="{{ item.link }}"></a>
+                                    
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ <section class="contact-section section" id="contact">           
+<div class="ps-top-categories">
+            <div class="ps-container">
+                <div class="section-title">
+                    <h2 data-heading="Resources">Study Resources for You</h2>
+                </div>
+                <div class="row">
+                    {% for item in contents %}
+                    <p class="contact-item outer-shadow hover-in-shadow" style="margin: 15px; border-radius: 0% !important"><i class="icon-document"></i> {{ item.content|truncatewords:10 }} <br />by {{ item.contributor }}</p>
+                    <a href="{% url 'study_resource:content_detail' item.id %}"> ..continue reading</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+ <section class="contact-section section" id="contact">           
+<div class="ps-top-categories">
+            <div class="ps-container">
+                <div class="section-title">
+                    <h2 data-heading="Resources">Recent Videos</h2>
+                </div>
+                <div class="row">
+                    {% for item in videos %}
+                    <div class="contact-item col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 ">
+                        <div class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow">
+                            <img  style="height: 100px; width: 180" src="{% static 'main/img/Rb726b85a8621f4b7f0f50b5e8d25c01a.png' %}" alt="">
+                            <p>by {{ item.contributor }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        
+ 
 {% endblock %}

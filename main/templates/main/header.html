@@ -1,0 +1,156 @@
+{% load static %}
+<header class="header header--1" data-sticky="true">
+        <div class="header__top" style="background-color: #ed017f !important">
+            <div class="ps-container">
+                <div class="header__left">
+                    <div class="menu--product-categories">
+                        <div class="menu__toggle"><i class="icon-menu"></i><span> Study Aid</span></div>
+                        <div class="menu__content">
+                            <ul class="menu--dropdown">
+                                <ul class="menu--dropdown">
+                                <li class="current-menu-item "><a href="{% url 'cbt:setup_cbt' %}"><i class="icon-book2"></i>  Computer Based Test</a>
+                                </li>
+                                <li class="current-menu-item "><a href="{% url 'study_resource:setup_study' %}"><i class="icon-book2"></i>  Study</a>
+                                </li>
+                                <li class="current-menu-item "><a href="{% url 'compete:compete' %}"><i class="icon-book2"></i>  Compete</a>
+                                </li>
+                                <li class="current-menu-item "><a href="{% url 'question:share_question' %}"><i class="icon-book2"></i> Objective Questions</a></li>
+                                <li class="current-menu-item "><a href="{% url 'theory:share_theory' %}"><i class="icon-book2"></i> Theory Questions</a></li>
+                                <li class="current-menu-item "><a href="{% url 'study_resource:share_resource' %}"><i class="icon-book2"></i> Resource</a></li>
+                            </ul>
+                            </ul>
+                        </div>
+                    </div><a class="ps-logo" href="/"><img src="{% static 'main/img/logo_light.png' %}" alt=""></a>
+                </div>
+                <div class="header__center">
+                    <form class="ps-form--quick-search" method="post" action="/search">
+                        {% csrf_token %}
+                        <input class="form-control" type="text" name="query" placeholder="Enter any topic/subject/course...">
+                        <button>Search</button>
+                    </form>
+                </div>
+
+                <div class="header__right">
+                    <div class="header__actions">
+                        
+                        <div class="ps-block--user-header">
+                            <div class="ps-block__left"><i class="icon-user"></i></div>
+                            <div class="ps-block__right">
+                                <a href="{% url 'main:profile' %}">Profile</a>
+                                <a href="{% url 'main:sign_out' %}">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav class="navigation" style="background-color: #9a0052 !important;">
+            <div class="ps-container">
+                <div class="navigation__left">
+                    <div class="menu--product-categories">
+                        <div style="color: #fff !important" class="menu__toggle"><i class="icon-menu"></i><span style="color: #fff !important"> Study Aid</span></div>
+                        <div class="menu__content" >
+                            <ul class="menu--dropdown">
+                                <li class="current-menu-item "><a href="{% url 'cbt:setup_cbt' %}"><i class="icon-book2"></i>  Computer Based Test</a>
+                                </li>
+                                
+                                <li class="current-menu-item "><a href="{% url 'study_resource:setup_study' %}"><i class="icon-book2"></i>  Study</a>
+                                </li>
+
+                                <li class="current-menu-item "><a href="{% url 'compete:compete' %}"><i class="icon-book2"></i>  Compete</a>
+                                </li>
+                                <li class="current-menu-item "><a href="{% url 'question:share_question' %}"><i class="icon-book2"></i> Objective Questions</a></li>
+                                <li class="current-menu-item "><a href="{% url 'theory:share_theory' %}"><i class="icon-book2"></i> Theory Questions</a></li>
+                                <li class="current-menu-item "><a href="{% url 'study_resource:share_resource' %}"><i class="icon-book2"></i> Resource</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation__right">
+                    <ul class="menu">
+                        <li class=" has-mega-menu"><span>
+                        </li>
+                        <li class=" has-mega-menu"><span>
+                        </li>
+                        <li class=""><a href="{% url 'main:index' %}" style="color: #fff !important">Home</a></li>
+                        <li class=" has-mega-menu"><span></li>
+                        <li class="menu-item-has-children has-mega-menu"><a href="#" style="color: #fff !important">Menu</a><span class="sub-toggle"></span>
+                            <div class="mega-menu">
+                                <div class="mega-menu__column">
+                                    <h4>Menu<span class="sub-toggle"></span></h4>
+                                    <ul class="ps-dropdown-menu">
+                                    <li><a href="{% url 'cbt:setup_cbt' %}">CBT</a></li>
+                                    <li><a href="{% url 'study_resource:setup_study' %}">Study</a></li>
+                                    
+                                </ul>
+                                </div>
+                            </div>
+                        </li>
+                         <li class=" has-mega-menu"><span></li>
+                        <li class="menu-item-has-children has-mega-menu"><a href="#" style="color: #fff !important">Share</a><span class="sub-toggle"></span>
+                            <div class="mega-menu">
+                                <div class="mega-menu__column">
+                                    <h4>Share<span class="sub-toggle"></span></h4>
+                                    <ul class="ps-dropdown-menu">
+                                    <li><a href="{% url 'question:share_question' %}">Obj Question</a></li>
+                                    <li><a href="{% url 'theory:share_theory' %}">Theory Question</a></li>
+                                    <li><a href="{% url 'study_resource:share_resource' %}">Resource</a></li>
+                                </ul>
+                                </div>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                    <ul class="navigation__extra">
+
+                        <li>
+                            <div class="ps-dropdown language"><a style="color: #fff !important" href="#"><img src="{% static 'main/img/flag/en.png' %}" alt="">Logged in as {{ request.user.username }}</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <header class="header header--mobile" data-sticky="true">
+        <div class="header__top" style="background-color: #ed017f;">
+            <div class="header__left">
+                
+            </div>
+            <div class="header__right">
+                <ul class="navigation__extra">
+                    
+                    
+                    <li>
+                        <div class="ps-dropdown language"><a href="#"><img src="img/flag/en.png" alt="">English</a>
+                            <ul class="ps-dropdown-menu">
+                                <li><a href="#"><img src="img/flag/germany.png" alt=""> Germany</a></li>
+                                <li><a href="#"><img src="img/flag/fr.png" alt=""> France</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="navigation--mobile" style="background-color: #9a0052;">
+            <div class="navigation__left"><a class="ps-logo" href="/"><img src="{% static 'main/img/logo_light.png' %}" alt=""></a></div>
+            <div class="navigation__right">
+                <div class="header__actions">
+                    
+                    </div>
+                    <div class="ps-block--user-header">
+                        <div class="ps-block__left"><i class="icon-user"></i></div>
+                        <div class="ps-block__right"><a href="{% url 'main:sign_in' %}">Login</a><a href="{% url 'main:sign_up' %}">Register</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ps-search--mobile" style="background-color: #ed017f !important;">
+            <form class="ps-form--search-mobile" action="index.html" method="get">
+                <div class="form-group--nest">
+                    <input class="form-control" type="text" placeholder="Search something...">
+                    <button><i class="icon-magnifier"></i></button>
+                </div>
+            </form>
+        </div>
+    </header>

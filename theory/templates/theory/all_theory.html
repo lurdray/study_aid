@@ -1,22 +1,104 @@
-{% extends 'main/base.html' %}
+
+
+{% extends 'main/cbt_base.html'%}
 {% load static %}
-      
 
 {% block content %}
 
-  <br />
-  <br />
-  <br />
 
-  <p>Theory Questions for you!</p>
-  {% for item in theorys %}
-  	<small>Question: {{ item.question }}</small><br />
-  	<small>Answer: {{ item.answer }}</small>
-  	<hr>
-  	<br />
-  {% endfor %}
-  <br />
-  <br />
+
+<style type="text/css">
+    .ps-btn{
+        background-color: #9a0052 !important;
+        color: #fff;
+        transition: 0.25s;
+    }
+    .ps-btn:hover{
+        background-color: #ed017f !important;
+        color: #000000 !important;
+        transition: 0.25s;
+    }
+    .pagination .active a{
+        background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+    .pagination a:hover{
+        background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+    
+</style>
+
+
+
+
+
+<style type="text/css">
+    .btn-success{
+        background-color: #9A0052;
+        color: #fff;
+    }
+    .btn-success:hover{
+        background-color: #ed017f;
+        color: #000000;
+    }
+</style>
+
+
+<!-- Start Faculty Area -->
+<section class="faculty-area section-gap" style="margin-top: -65px; background-color: #fff">
+    <div class="container">
+        <div class="row justify-content-center">
+
+    
+            <h3>Theory Questions for You</h3>
+        <form class="container" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+        {% for item in theorys %}
+            <div class="col-lg-12" style="background-color: #f5f5f5; margin-bottom:">
+                <br><br>
+                
+                    <div class="col-lg-10" style="align-items: center; margin: auto;">
+                        <div class="section-title" style="align-items: center;"> 
+
+                            <blockquote class="generic-blockquote" style="background: #fff">
+                                <h5>Question:</h5><span>{{ item.question }} </span>
+
+                            </blockquote>
+                            <br>
+                            <div class="row  d-flex align-items-center">
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 single-faculty">
+                                    <blockquote class="generic-blockquote" style="background: #fff">
+                                        <h5>Answer:</h5><span>{{ item.answer }} </span>
+
+                                    </blockquote>
+                                    
+                                </div>
+
+                               
+                            </div>
+
+                        </div>
+                    </div>
+
+                    
+
+
+            {% endfor %}
+
+    
+        
+         
+
+    </form>
+
+        </div>
+    </div>
+    <br>
+</section>
+
+
 
 
 
