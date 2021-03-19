@@ -101,7 +101,7 @@
                         <aside class="widget widget--vendor widget--open-time">
 
                         <p><strong> How prepared are you? take Computer Based Test to find out</strong>
-                            <a href="{% url 'cbt:setup_cbt' %}">
+                            <a href="{% url 'cbt:setup_cbt' %}"><br>
                             <button class="btn btn-success">Take Test</button>
 
                         </a>
@@ -189,11 +189,11 @@
                                     {% for item in study_resource.videos.all %}
 
                                     <div class="contact-item col-xl-4 col-lg-12" style="text-align: center;">
-                                            <div class="ps-productX ">
-                                                <div class="ps-product__thumbnail" style="margin: auto;"><a href="{{ item.video.url }}"><video width="320" height="157" controls><source src="{{ item.video.url }}" type="video/mp4"></video> </a></div>
-                                         </div>         
+                                            
+                                                <div class="ps-product__thumbnail" style="margin: 20px; padding-right: 2px"><a href="{{ item.video.url }}"><video width="250" height="157" controls><source src="{{ item.video.url }}" type="video/mp4"></video> </a></div>
+                                                
                                         </div>
-
+                                        <br><br>
                                      {% endfor %}
                                 </div>
                                 <div class="ps-pagination" >
@@ -211,7 +211,7 @@
                                         {% for item in study_resource.ebooks.all %}
 
                                         <div class="contact-item col-xl-4 col-lg-4 ">
-                                            <div style="background-color: #fff" class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{{ item.ebook.url }}"></a><img  style="height: 100px; width: 180; " src="{% static 'main/img/5aa3ae359fc609199d0ff247.png' %}" alt="">
+                                            <div style="background-color: #fff; overflow: hidden;" class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{{ item.ebook.url }}"></a><img  style="height: 100px; width: 180; " src="{% static 'main/img/5aa3ae359fc609199d0ff247.png' %}" alt="">
                                                 <p>{{ study_resource.title }} ebook by {{ item.contributor }}</p>
                                             </div>
                                         </div>

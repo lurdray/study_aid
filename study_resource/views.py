@@ -7,7 +7,7 @@ from main.views import ray_randomiser
 
 from study_resource.models import *
 from app_user.models import AppUser
-
+from django.contrib import messages
 import random
 import string
 
@@ -65,7 +65,7 @@ def ShareResourceView(request):
 
 			study_resource.save()
 
-
+			messages.warning(request, "Resources Successfully Added")
 			return HttpResponseRedirect(reverse("main:index"))
 
 			
@@ -121,7 +121,7 @@ def ContributeVideoView(request, id):
 			except:
 				pass
 
-
+			messages.warning(request, "thanks for sharing this video, Do you have more to share?")
 			return HttpResponseRedirect(reverse("study_resource:contribute_video", args=(study_resource.id,)))
 
 
@@ -157,7 +157,7 @@ def ContributeImageView(request, id):
 			except:
 				pass
 
-
+			messages.warning(request, "thanks for sharing this image, Do you have more to share?")
 			return HttpResponseRedirect(reverse("study_resource:contribute_image", args=(study_resource.id,)))
 
 
@@ -193,7 +193,7 @@ def ContributeEbookView(request, id):
 			except:
 				pass
 
-
+			messages.warning(request, "thanks for sharing this Ebook, Do you have more to share?")
 			return HttpResponseRedirect(reverse("study_resource:contribute_ebook", args=(study_resource.id,)))
 
 			
@@ -228,7 +228,7 @@ def ContributeContentView(request, id):
 
 			study_resource.save()
 
-
+			messages.warning(request, "thanks for sharing this content, Do you have more to share?")
 			return HttpResponseRedirect(reverse("study_resource:contribute_content", args=(study_resource.id,)))
 
 
@@ -264,7 +264,7 @@ def ContributeLinkResourceView(request, id):
 
 			study_resource.save()
 
-
+			messages.warning(request, "thanks for sharing this link, Do you have more to share?")
 			return HttpResponseRedirect(reverse("study_resource:contribute_link", args=(study_resource.id,)))
 
 			

@@ -43,6 +43,10 @@
         box-shadow: 1px 0 1px 1px #ed017f;
 
     }
+    .alert{
+        box-shadow: 5px 5px 10px #111;
+        border: none;
+    }
 </style>
 
 <section class="ps-section--account ps-checkout">
@@ -64,6 +68,13 @@
                                         
                                         <h4>Contribute to ({{ study_resource.title }}) Resourcess</h4>
                                         <div class="ps-block--payment-method">
+                                        {% if messages %}
+                                            {% for message in messages %}
+                                                <div class="alert alert-{{message.tags}} text-center" role="alert" style="background-color: #1DB954; color: #fff; border-radius: 6px; font-weight: 600;">
+                                            {{ message }}
+                                                </div>
+                                            {% endfor %}
+                                        {% endif %}
                                             <div class="ps-tabs">
                                                 <form class="ps-form--visa" method="post">
                                                         {% csrf_token %}
