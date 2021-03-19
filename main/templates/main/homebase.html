@@ -76,7 +76,7 @@
                             <div class="ps-block__right">
                                 
                                 <a href="{% url 'main:profile' %}">Profile</a>
-                                <a href="{% url 'main:sign_out' %}">Logout</a>
+                                <a onclick="return confirm('Sure you want to leave this site?')" href="{% url 'main:sign_out' %}">Logout</a>
                             </div>
                         </div>
                         </div>

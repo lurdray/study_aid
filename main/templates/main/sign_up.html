@@ -29,6 +29,10 @@
         color: #000000 !important;
         border: none;
     }
+    .alert{
+        box-shadow: 5px 5px 10px #111;
+        border: none;
+    }
 </style>
 
 <div class="ps-my-account">
@@ -36,7 +40,7 @@
                 <form class="ps-form--account ps-tab-root" action=""  method="post">
                 {% if messages %}
                     {% for message in messages %}
-                    <div class="alert alert-{{message.tags}} text-center" role="alert" style="background-color: rgb(177, 83, 83); color: rgb(24, 23, 23); border-radius: 6px; font-weight: 600;">
+                    <div class="alert alert-{{message.tags}} text-center" role="alert" style="background-color: #E50914; color: #fff; border-radius: 6px; font-weight: 600;">
                     {{ message }}
                      </div>
                     {% endfor %}

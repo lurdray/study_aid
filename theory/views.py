@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
-
+from django.contrib import messages
 from theory.models import Theory
 
 import random
@@ -21,7 +21,7 @@ def ShareTheoryView(request):
 
 		theory = Theory.objects.create(question=question, answer=answer, level=level, category=category)
 		theory.save()
-
+		messages.warning(request, "Theory Questions Successfully Added")
 		return HttpResponseRedirect(reverse("main:index"))
 		
 	else:

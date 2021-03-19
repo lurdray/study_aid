@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
-
+from django.contrib import messages
 from question.models import Question
 
 # Create your views here.
@@ -23,7 +23,7 @@ def ShareQuestionView(request):
 
 			question1 = Question.objects.create(title=q1, answer_a=q1_a, answer_b=q1_b, answer_c=q1_c, answer_d=q1_d, real_answer=real_answer_1, category=category, level=level)
 			question1.save()
-	
+		messages.warning(request, "Questions Successfully Added")
 		return HttpResponseRedirect(reverse("main:index"))
 
 		
