@@ -10,6 +10,8 @@ class AppUser(models.Model):
 	full_name = models.CharField(max_length=500, default="none")
 	phone = models.CharField(max_length=500, default="none")
 	email = models.CharField(max_length=500, default="none")
+	gender = models.CharField(max_length=500, default="none")
+	location = models.CharField(max_length=500, default="none")
 	bio = models.TextField(default="none")
 	account_type = models.CharField(max_length=500, default="none")
 	status = models.BooleanField(default=False)

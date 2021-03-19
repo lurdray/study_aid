@@ -1,0 +1,104 @@
+{% extends 'main/homebase.html' %}
+
+
+{% load static %}
+      
+
+{% block content %}
+
+<div class="ps-page--single ps-page--vendor">
+        <section class="ps-store-list">
+            <div class="container">
+                
+                <div class="ps-section__wrapper">
+                    <div class="ps-section__left">
+                        <aside class="widget widget--vendor">
+                            <h3 class="widget-title">Product Search</h3>
+                            <div class="form-group--icon">
+                                <input class="form-control" type="text" placeholder="Search..."><i class="icon-magnifier"></i>
+                            </div>
+                        </aside>
+                        <aside class="widget widget--vendor">
+                            <h3 class="widget-title">Store Categories</h3>
+                            <ul class="ps-list--arrow">
+                                <li><a href="#">Interior</a></li>
+                                <li><a href="#">Lighting</a></li>
+                                <li class="menu-item-has-children"><a href="#">Exterior</a>
+                                    <ul class="sub-menu ps-list--arrow">
+                                        <li><a href="#"> Custom Grilles</a></li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item-has-children"><a href="#">Wheels & Tires</a>
+                                    <ul class="sub-menu ps-list--categories">
+                                        <li><a href="#"> Custom Grilles</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Factory Wheels</a></li>
+                            </ul>
+                        </aside>
+                        <aside class="widget widget--vendor widget--open-time">
+                            <h3 class="widget-title"><i class="icon-clock3"></i> Store Hours</h3>
+                            <ul>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
+                            </ul>
+                        </aside>
+                    </div>
+                    <div class="ps-section__right">
+                       <div class="ps-post-comments">
+                <h3>Forum</h3>
+                <div class="ps-block--comment">
+                    <div class="ps-block__thumbnail"><img src="{% static 'main/img/5.jpg' %}" alt=""></div>
+                    <div class="ps-block__content">
+                        <h5>Jason bradley<small>MARCH 12, 2013 AT 1:17 PM</small></h5>
+                        <p>Cras id nulla at metus congue auctor. Suspendisse auctor dictum orci quis interdum. Nullam et eleifend metus. Integer in est orci. Duis hendrerit ex metus, vel tempor sem aliquet nec. Donec ornare hend rerit bibendum.</p><a class="ps-block__reply" href="#">Reply</a>
+                    </div>
+                </div>
+                <div class="ps-block--comment">
+                    <div class="ps-block__thumbnail"><img src="{% static 'main/img/5.jpg' %}" alt=""></div>
+                    <div class="ps-block__content">
+                        <h5>Jared Erickson<small>MARCH 12, 2013 AT 1:17 PM</small></h5>
+                        <p>Ut tellus ligula, interdum a interdum ut, egestas ut ipsum. Vivamus viverra consequat ipsum, nec auctor dolor eleifend sit amet. Nulla cursus fringilla metus a dictum</p><a class="ps-block__reply" href="#">Reply</a>
+                        <div class="ps-block--comment">
+                            <div class="ps-block__thumbnail"><img src="{% static 'main/img/5.jpg' %}" alt=""></div>
+                            <div class="ps-block__content">
+                                <h5>Chris Ames<small>MARCH 14, 2013 AT 8:01 AM</small></h5>
+                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><a class="ps-block__reply" href="#">Reply</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="ps-form--post-comment" action="do_action" method="post">
+                    <h3>Leave a comment</h3>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="8" placeholder="Your comment *" required></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Your name*">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="your email*">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="your website">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group submit">
+                        <button class="ps-btn">Post Comment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        </section>
+    {% endblock %}

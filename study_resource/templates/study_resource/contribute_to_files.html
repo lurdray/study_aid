@@ -14,6 +14,34 @@
         background-color: #9a0052 !important;
         color: #fff;
     }
+    .upload-box{
+        font-size: 16px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 5px 5px 10px black;
+        height: 40px;
+        width: 100%;
+        outline: none;
+    }
+    ::-webkit-file-upload-button{
+        color: #fff;
+        background-color: #ed017f;
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+
+        box-shadow: 1px 0 1px 1px #9a0052;
+        outline: none;
+        height: 35px;
+        margin-top: -1px;
+
+    }
+    ::-webkit-file-upload-button:hover{
+        color: #fff;
+        background-color: #9a0052 !important;
+        box-shadow: 1px 0 1px 1px #ed017f;
+
+    }
 </style>
 
 <section class="ps-section--account ps-checkout">
@@ -58,7 +86,7 @@
                                                                         <div class="col-12">
                                                                             <div class="form-group">
                                                                                 <label>File(Pdf,Video,Audio Book,Images)</label><br />
-                                                                                <input type="file" name="study_file" class="form-control">
+                                                                                <input type="file" name="study_file" class="form-controlx upload-box">
                                                                             </div>
                                                                         </div>
                                                                         

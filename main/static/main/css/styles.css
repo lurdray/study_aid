@@ -1263,6 +1263,10 @@ body.dark{
 	width: 100%;
 }
 
+.contact-section .contact-item-inner:hover{
+	transform: scale(1.08);
+}
+
 .contact-section .contact-item-inner i{
 	font-size: 25px;
 	color: var(--skin-color);

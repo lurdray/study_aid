@@ -21,7 +21,9 @@
     <div class="container">
         <div class="row justify-content-center">
 
-    
+        <div class="row xd-flex" style="justify-content: right; float: right;">
+        
+            </div>
 
         <form class="container" method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -101,9 +103,11 @@
             {% endfor %}
         {% endif %}
     
-        
-         <button class="btn btn-success" type="submit" style="margin: auto; align-items: center;">Proceed to Section B</button>
+        <div class="container"><a href="/">
+         
+         <button class="btn btn-success" type="submit" style="justify-content: left; float: left;">Proceed to Section B</button>
          <br><br>
+     </div>
 
     </form>
 

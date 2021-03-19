@@ -35,78 +35,58 @@
 </div>
 
  <section class="ps-section--account ps-checkout">
-
     <div class="container">
-                             
-
-<div class="ps-section__content">
-    <form class="ps-form--checkout" method="post">
-        {% csrf_token %}
-        <div class="ps-form__content">
-            <div class="row">
-                
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="ps-block--shipping">
-                        
-                        <h4>Setup Study</h4>
-                        <div class="ps-block--payment-method">
-                            <div class="ps-tabs">
-                                <div class="ps-tab active" id="visa">
-            <form class="ps-form--visa" method="post">
-                {% csrf_token %} 
-
-                <div class="row">
-                    <div class="col-12">
-                        <div class="form-group">
-                            <label></label>
+    <div class="ps-section__content">
+                    <form class="ps-form--checkout" method="post">
+                        {% csrf_token %}
+                        <div class="ps-form__content">
                             <div class="row">
-                                <div class="col-4">
-                                    <div class="form-group">
-                                         <label>Category</label>
-                                        <select name="category" class="form-control">
-                                            <option value="general">General</option>
-                                            <option value="waec">Waec</option>
-                                            <option value="jamb">Jamb</option>
-                                            <option value="neco">Neco</option>
-                                            <option value="gce">GCE</option>
-                                            <option value="gmat">Gmat</option>
-                                        </select>
+                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12"></div>
+                                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                                    <div class="ps-block--shipping">
+                                        <h4 style="text-align: center;">Setup Study</h4>
+                                        <div class="ps-block__content">
+                                            <div class="ps-block--payment-method">
+                                                <div class="ps-tabs">
+                                                    <div class="ps-tab active" id="visa">
+                                                        {% csrf_token %}
+                                                        <form class="ps-form--visa" method="post">
+                                                                                             
+                                                            <div class="form-group">
+                                                                <label>Category</label>
+                                                                    <select name="category" class="form-control">
+                                                                        <option value="general">General</option>
+                                                                        <option value="waec">Waec</option>
+                                                                        <option value="jamb">Jamb</option>
+                                                                        <option value="neco">Neco</option>
+                                                                        <option value="gce">GCE</option>
+                                                                        <option value="gmat">Gmat</option>
+                                                                 </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>Level</label>
+                                                                        <select name="level" class="form-control">
+                                                                         <option value="simple">Simple</option>
+                                                                            <option value="intermediate">Intermediate</option>
+                                                                            <option value="hard">Hard</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            <div class="form-group submit">
+                                                                <button class="ps-btn ps-btn--fullwidth">Go!</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div> 
+                                            </div>  
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-4">
+</div>
+</div>
+</form></div>
 
-                                    <div class="form-group">
-                                          <label>Level</label>
-                                        <select name="level" class="form-control">
-                                            <option value="simple">Simple</option>
-                                            <option value="intermediate">Intermediate</option>
-                                            <option value="hard">Hard</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                </div>
-                <div class="form-group submit">
-                    <button class="ps-btn ps-btn--fullwidth">Go!</button>
-                </div>
-            </form>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                </div>
-            </div>
-        </div>
-    </form>
-                </div>
-            </div>
+    
         </section>
 
 

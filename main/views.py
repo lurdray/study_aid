@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 from .forms import UserForm
 
@@ -24,12 +25,15 @@ def SignInView(request):
 		if user:
 			if user.is_active:
 				login(request, user)
+				messages.success(request, "Welcome onboard ")
 				return HttpResponseRedirect(reverse("main:index"))
 			else:
-				return HttpResponse("Incorrect Login!")
+				messages.warning(request, "Incorrect Login")
+				return HttpResponseRedirect(reverse("main:sign_in"))
 
 		else:
-			return HttpResponse("Incorrect Login!")
+			messages.warning(request, "Incorrect Login")
+			return HttpResponseRedirect(reverse("main:sign_in"))
 	else:
 		context = {}
 		return render(request, "main/sign_in.html", context)
@@ -73,6 +77,9 @@ def ProfileView(request):
 			phone = request.POST.get("phone")
 			email = request.POST.get("email")
 			bio = request.POST.get("bio")
+			gender = request.POST.get("gender")
+			location = request.POST.get("location")
+
 
 			if username != "":
 				app_user.user.username = username
@@ -84,6 +91,10 @@ def ProfileView(request):
 				app_user.email = email
 			if bio != "":
 				app_user.bio = bio
+			if bio != "":
+				app_user.gender = gender
+			if bio != "":
+				app_user.location = location
 
 
 			try:
@@ -95,7 +106,7 @@ def ProfileView(request):
 
 
 			app_user.save()
-
+			messages.success(request, "Profile Updated successfully")
 			return HttpResponseRedirect(reverse("main:profile"))
 
 		else:
@@ -130,12 +141,14 @@ def SignUpView(request):
 
 
 		if request.POST.get("password2") != request.POST.get("password1"):
-			return HttpResponse("Error!  -Please make sure both passwords are similar")
+			messages.warning(request, "Make Sure both passwords match")
+			return HttpResponseRedirect(reverse("main:sign_up"))
 			
 		else:
 			try:
 				AppUser.objects.get(user__username=request.POST.get("username"))
-				return HttpResponse("Error!  -Username already taken, try another one!")
+				messages.warning(request, "Username already exist, try another one!")
+				return HttpResponseRedirect(reverse("main:sign_up"))
 
 			except:
 				user = form.save()
@@ -144,7 +157,7 @@ def SignUpView(request):
 
 				app_user = AppUser.objects.create(user=user)
 				app_user.save()
-
+				messages.warning(request, "One final step")
 				return HttpResponseRedirect(reverse("main:sign_in"))
 
 	else:
@@ -157,6 +170,7 @@ def SignUpView(request):
 
 def UserLogoutView(request):
 	logout(request)
+	messages.success(request, "Logged Out successfully")
 	return HttpResponseRedirect(reverse("main:sign_in"))
 
 

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Martfury - Multi Vendor &amp; Marketplace</title>
+    <title>StudyAid: CBT| Prepare ahaed for yor coming exams </title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'main/plugins/font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'main/fonts/Linearicons/Linearicons/Font/demo-files/demo.css' %}">
@@ -73,7 +73,12 @@
                         
                         <div class="ps-block--user-header">
                             <div class="ps-block__left"><i class="icon-user"></i></div>
-                            <div class="ps-block__right"><a href="{% url 'main:sign_in' %}">Login</a><a href="{% url 'main:sign_up' %}">Register</a></div>
+                            <div class="ps-block__right">
+                                
+                                <a href="{% url 'main:profile' %}">Profile</a>
+                                <a href="{% url 'main:sign_out' %}">Logout</a>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -180,9 +185,13 @@
                     
                     </div>
                     <div class="ps-block--user-header">
-                        <div class="ps-block__left"><i class="icon-user"></i></div>
-                        <div class="ps-block__right"><a href="{% url 'main:sign_in' %}">Login</a><a href="{% url 'main:sign_up' %}">Register</a></div>
-                    </div>
+                            <div class="ps-block__left"><i class="icon-user"></i></div>
+                            <div class="ps-block__right">
+                                
+                                <a href="{% url 'main:profile' %}">Profile</a>
+                                <a href="{% url 'main:sign_out' %}">Logout</a>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -196,21 +205,19 @@
         </div>
     </header>
     <div class="ps-panel--sidebar" id="cart-mobile" >
-        <div class="ps-panel__header" style="background-color: #9a0052 !important;">
-            <h3>Log Out</h3>
-        </div>
+        
         
     </div>
     
     <div class="navigation--list" style="background-color: #9a0052 !important; color: #fff">
         <div class="navigation__content"><a class="navigation__item ps-toggle--sidebar" href="#menu-mobile"><i class="icon-menu"></i><span> Menu</span></a>
-        <a class="navigation__item ps-toggle--sidebar" href="#abouts"><i class="icon-list4"></i><span> About</span></a>
+        <a class="navigation__item ps-toggle--sidebarm" href="{% url 'main:profile' %}"><i class="icon-user"></i><span> Profile</span></a>
 
-        <a class="navigation__item ps-toggle--sidebar" href="#"><i class="icon-home"></i><span> Home</span></a>
+        <a class="navigation__item ps-toggle--sidebarm" href="/"><i class="icon-home"></i><span> Home</span></a>
 
         <a class="navigation__item ps-toggle--sidebar" href="#search-sidebar"><i class="icon-magnifier"></i><span> Search</span></a>
 
-        <a class="navigation__item ps-toggle--sidebar" href="#cart-mobile"><i class="icon-user"></i><span> Log Out</span></a></div>
+        <a class="navigation__item" href="{% url 'main:sign_out' %}"><i class="icon-lock"></i><span> Log Out</span></a></div>
 
     </div>
     <div class="ps-panel--sidebar" id="search-sidebar" style="background-color: #fff;">
@@ -239,22 +246,13 @@
                         </li>
                         <li class="current-menu-item menu-item-has-children"><a href="{% url 'compete:compete' %}">Compete</a>
                         </li>
-                        <li class="menu-item-has-children has-mega-menu"><a href="#">Share</a><span class="sub-toggle"></span>
-                        <div class="mega-menu">
-                        <div class="mega-menu__column">
-                            <a href="{% url 'question:share_question' %}"><h4>Obj Question<span ></span></h4></a>
-                            
-                        </div>
-                        <div class="mega-menu__column">
-                            <a href="{% url 'theory:share_theory' %}"><h4>Theory Question</h4></a>
-                            
-                        </div>
-                        <div class="mega-menu__column">
-                            <a href="{% url 'study_resource:share_resource' %}"><h4>Resource</h4></a>
-                            
-                        </div>
-                    </div>
-                </li>
+                        <li class="current-menu-item menu-item-has-children"><a href="{% url 'question:share_question' %}">Obj Question</a>
+                        </li>
+                        <li class="current-menu-item menu-item-has-children"><a href="{% url 'question:share_question' %}">Theory Question</a>
+                        </li>
+                        <li class="current-menu-item menu-item-has-children"><a href="{% url 'study_resource:share_resource' %}">Share Resource</a>
+                        </li>
+                       
                     </ul>
                             
                 

@@ -4350,19 +4350,19 @@ textarea.form-control {
 }
 
 .ps-block--categories-tabs .ps-tab-list a:hover {
-  border-color: #fcb800;
+  border-color: #ed017f !important;
 }
 
 .ps-block--categories-tabs .ps-tab-list a:hover i {
-  color: #fcb800;
+  color: #ed017f !important;
 }
 
 .ps-block--categories-tabs .ps-tab-list a.active {
-  border-color: #fcb800;
+  border-color:#ed017f !important;
 }
 
 .ps-block--categories-tabs .ps-tab-list a.active i {
-  color: #fcb800;
+  color: #ed017f !important;
 }
 
 .ps-block--categories-tabs .ps-block__item {
@@ -6757,7 +6757,7 @@ textarea.form-control {
 }
 
 .ps-block--payment-method .ps-tab-list li .ps-btn:hover {
-  background-color: #fcb800;
+  background-color: #ed017f !important;
 }
 
 .ps-block--payment-method .ps-tab-list li:last-child {
@@ -6765,7 +6765,7 @@ textarea.form-control {
 }
 
 .ps-block--payment-method .ps-tab-list li.active .ps-btn {
-  background-color: #fcb800;
+  background-color:  #ed017f !important;
   color: #fff;
 }
 
@@ -9491,7 +9491,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #fcb800;
+  background-color: #ed017f !important;
   transform: scale3d(0, 1, 1);
   transform-origin: 100% 50%;
   transition: transform 0.75s cubic-bezier(0.77, 0, 0.175, 1);

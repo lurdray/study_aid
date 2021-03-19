@@ -106,21 +106,40 @@
 <body>
 
     <!-- Start Header Area -->
-    <header id="header">
+    <header  id="header">
 
         <div class="container">
         <div class="row d-flex" style="justify-content: right; float: right;">
-        <nav id="nav-menu-container" style="justify-content: right; float: right;">
+        <nav id="xnav-menu-container" style="justify-content: right; float: right;">
+
             <ul class="nav-menu">
                 
                 <li><div class="timer" onload="timer({{ exam.duration }})">
                   <div style="color: #9a0052">Section</div>
                   <div class="time">
-                    <strong style="color: #9a0052"><i class="icon-timer"> </i> Time left: <span id="time">Loading...</span></strong>
+                    <strong style="color: #9a0052"><i class="icon-timer"> </i> <span id="time">Loading...</span></strong>
                   </div>
                 </li>
                 
                 <li><p id="ray_counter"></p></li>
+            
+            </ul>
+        </nav>
+            </div>
+
+            <div class="row d-flex" style="">
+        <nav id="xnav-menu-container" style="justify-content: right; float: right;">
+          
+            <ul class="nav-menu">
+              Home
+                <a href="/">
+                <li><div class="timer" >
+                  <div style="color: #9a0052; font-size: 20px; scroll-behavior: none; " onscroll=""><i style="font-size: 26px" class="fa fa-home"></i></div>
+
+              </div>
+            </li>
+          </a>
+
             
             </ul>
         </nav>

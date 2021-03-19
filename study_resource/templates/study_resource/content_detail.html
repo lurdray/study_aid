@@ -1,5 +1,43 @@
-<br />
-{{ resource_content.content }}
+{% extends 'main/base.html' %}
 
-<br />
-contributed by: {{ resource_content.contributor }}
+
+{% load static %}
+      
+
+{% block content %}
+
+{% include "main/header.html" %}
+
+<section class="ps-section--account ps-checkout">
+
+    <div class="container">
+                             
+
+<div class="ps-section__content">
+                    
+                        <div class="ps-form__content">
+                            <div class="row">
+                                
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="ps-block--shipping">
+                                        
+                                        <div class="ps-block--payment-method">
+                                            <div class="ps-tabs">
+                                                <div class="ps-tab active" id="visa">
+                                                        <div class="form-group" style="background-color: #fff; padding: 20px">
+                                                           	 
+                                                            <p>{{ resource_content.content }}</p>
+                                                        </div>
+                                                       
+                                                <strong>contributed by: {{ resource_content.contributor }} </strong>       
+
+                                
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+
+{% endblock%}
