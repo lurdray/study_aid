@@ -180,7 +180,7 @@
                             <p><div class="row xps-block--payment-method col-lg-12" style="margin: auto;">
                     {% for item in study_resources %}
                     <div class="contact-item col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div style="background-color: #fff; overflow: hidden;" class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{% url 'study_resource:resource_detail' item.slug %}"></a><img  style="height: 100px; width: 180; " src="{% static 'main/img/Rb726b85a8621f4b7f0f50b5e8d25c01a.png' %}" alt="">
+                        <div style="background-color: #fff; overflow: hidden; box-shadow: 5px 5px 10px #111; overflow: hidden; border: none" class="ps-block--category Wcontact-item-inner  hover-in-shadow"><a class="ps-block__overlay" href="{% url 'study_resource:resource_detail' item.slug %}"></a><img  style="height: 100px; width: 180; " src="{% static 'main/img/Rb726b85a8621f4b7f0f50b5e8d25c01a.png' %}" alt="">
                             <h5>{{ item.title }}</h5>
                         </div>
                     </div>
@@ -199,7 +199,7 @@
                             <p><div class="row ps-block--payment-methodx col-lg-12" style="margin: auto;">
                                             {% for item in contents %}
 
-                                            <div class="contact-item col-xl-6 col-lg-12  " style="text-align: center; margin-bottom: 10px">
+                                            <div class="contact-item col-xl-6 col-lg-12  " style="text-align: center; margin-bottom: 10px; ">
                                                 <a href="https://{{ item.link }}" style="text-align: left;">
                                                     <div class="ps-product contact-item-inner outer-shadow " style="color: #000000; text-align: center; background-color: #fff">
                                                         <div style="margin: auto; background-color: #fff; justify-content: space-between;" class="ps-product__thumbnail">{{ item.content|truncatewords:50 }}  ..continue reading
@@ -252,7 +252,7 @@
                                             {% for item in ebooks %}
 
                                         <div class="contact-item col-xl-3 col-lg-3  ">
-                                            <div style="background-color: #fff; overflow: hidden;" class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{{ item.ebook.url }}"></a><img  style="height: 100px; width: 180; overflow: hidden; " src="{% static 'main/img/5aa3ae359fc609199d0ff247.png' %}" alt="">
+                                            <div style="background-color: #fff; overflow: hidden; box-shadow: 5px 5px 10px #111; overflow: hidden; border: none" class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{{ item.ebook.url }}"></a><img  style="height: 100px; width: 180; overflow: hidden; " src="{% static 'main/img/5aa3ae359fc609199d0ff247.png' %}" alt="">
                                                 <h5>{{ study_resource.title }} ebook by {{ item.contributor }}</h5>
                                             </div>
                                         </div>

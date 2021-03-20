@@ -54,6 +54,7 @@
     
 </style>
 
+
 <div class="ps-page--single ps-page--vendor">
         <section class="ps-store-list">
             <div class="container">
@@ -62,15 +63,14 @@
                         <h4 style="color:#fff">{{ study_resource.title }}</h4><a class="ps-block__inquiry" href="{% url 'study_resource:contribute_chat' study_resource.id %}" style="color: #fff"><img  style="height: 50px; width: 50px" src="https://img.icons8.com/bubbles/2x/chat.png" > Join Forum</a>
                     </div>
                     <div class="ps-block__user" style="background-color: #9a0052 !important;" >
-                        <div class="ps-block__user-avatar"><img  src="{% static 'main/img/5.jpg' %}" alt="">
+                        <div class="ps-block__user-avatar"><img   src="{% static 'main/img/5.jpg' %}" alt="">
                             <p ><img  style="height: 50px; width: 50px" src="https://img.icons8.com/bubbles/2x/chat.png" > Author</p>
 
                         </div>
                         
                         
                     </div>
-                </aside>
-              
+                </aside>  
 
                 <div class="ps-section__wrapper">
                     <div class="ps-section__left">
@@ -133,7 +133,7 @@
                     <div class="ps-product--detail ps-product--fullwidth">
                         
                         <div class=" ps-product__contentx ps-tab-rootx"  >
-                            <ul class="ps-tab-list ps-store-link">
+                            <ul class="ps-tab-list ps-store-link" style=" box-shadow: 5px 5px 10px #111; overflow: hidden; border: none">
                                 <li class="active"><a href="#tab-1"><small>Contents: ({{ study_resource.contents.count }})</small></a></li>
                                 <li><a href="#tab-2"><small>Videos: ({{ study_resource.videos.count }})</small></a></li>
                                 <li><a href="#tab-3"><small>Ebooks: ({{ study_resource.ebooks.count }})</small></a></li>
@@ -156,9 +156,9 @@
                                         <div class="row ps-block--payment-method col-lg-12" style="margin: auto;">
                                             {% for item in study_resource.contents.all %}
 
-                                            <div class="contact-item col-xl-6 col-lg-12  " style="text-align: center; margin-bottom: 10px">
+                                            <div class="contact-item col-xl-6 col-lg-12  " style="text-align: center; margin-bottom: 10px; ">
                                                 <a href="{{ item.link }">
-                                                    <div class="ps-product contact-item-inner outer-shadow " style="color: #000000; text-align: center; background-color: #fff">
+                                                    <div class="ps-product contact-item-inner outer-shadow " style="color: #000000; text-align: center; background-color: #fff; box-shadow: 5px 5px 10px #111; overflow: hidden; border: none">
                                                         <div style="margin: auto; background-color: #fff; justify-content: space-between;" class="ps-product__thumbnail"><a href="{% url 'study_resource:content_detail' item.id %}" style="text-align: left;">{{ item.content|truncatewords:50 }}  ..continue reading</a>
                                 
                                 
@@ -211,7 +211,7 @@
                                         {% for item in study_resource.ebooks.all %}
 
                                         <div class="contact-item col-xl-4 col-lg-4 ">
-                                            <div style="background-color: #fff; overflow: hidden;" class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{{ item.ebook.url }}"></a><img  style="height: 100px; width: 180; " src="{% static 'main/img/5aa3ae359fc609199d0ff247.png' %}" alt="">
+                                            <div style="background-color: #fff; overflow: hidden; box-shadow: 5px 5px 10px #111; overflow: hidden; border: none" class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{{ item.ebook.url }}"></a><img  style="height: 100px; width: 180; " src="{% static 'main/img/5aa3ae359fc609199d0ff247.png' %}" alt="">
                                                 <p>{{ study_resource.title }} ebook by {{ item.contributor }}</p>
                                             </div>
                                         </div>
@@ -292,6 +292,22 @@
                 </div>
                 
             </div>
+</div>
+</div>
+</p>
+</a>
+</strong>
+</p>
+</p>
+</aside>
+</div>
+</div>
+</div>
+</section>
+
+
+
+
             
             
 {% endblock %}

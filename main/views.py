@@ -8,7 +8,7 @@ from django.contrib import messages
 
 from .forms import UserForm
 
-from app_user.models import AppUser
+from app_user.models import AppUser, ContactForm, ContactMessage
 from study_resource.models import *
 
 import random
@@ -186,11 +186,37 @@ def AboutView(request):
 		return render(request, "main/about.html", context)
 
 
+def contact(request):
+	if request.method == 'POST':
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			data = ContactMessage()
+			data.name = form.cleaned_data['name']
+			data.email = form.cleaned_data['email']
+			data.phone = form.cleaned_data['phone']
+			data.subject = form.cleaned_data['subject']
+			data.message = form.cleaned_data['message']
+			data.ip = request.META.get('REMOTE_ADDR')
+			data.save()
+			messages.success(request, "Your message has been delivered")
+			return HttpResponseRedirect(reverse("main:contact"))
 
+	form = ContactForm
+	
+	context = {'form':form, }
+	return render(request,  "main/contact.html", context)
+
+def all_contacts(request):
+	contacts = ContactMessage.objects.all()
+
+	context = {'contacts':contacts}
+	return render(request, "main/all_contacts.html", context)
 
 
 
 def ray_randomiser(length=6):
 	landd = string.ascii_letters + string.digits
 	return ''.join((random.choice(landd) for i in range(length)))
+
+
 
