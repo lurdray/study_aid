@@ -6436,6 +6436,7 @@ textarea.form-control {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .ps-block--store-banner .ps-block__content h3 {
@@ -17017,7 +17018,7 @@ html .bg--parallax {
   background-position: 30% 30% !important;
   background-size: cover !important;
   height: 100px !important;
-  max-height: 50% !important;
+  max-height: 150px !important;
 }
 
 .bg--top {
