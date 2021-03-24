@@ -157,7 +157,7 @@
                                             {% for item in study_resource.contents.all %}
 
                                             <div class="contact-item col-xl-6 col-lg-12  " style="text-align: center; margin-bottom: 10px; ">
-                                                <a href="{{ item.link }">
+                                                <a href="{{ item.link }}">
                                                     <div class="ps-product contact-item-inner outer-shadow " style="color: #000000; text-align: center; background-color: #fff; box-shadow: 5px 5px 10px #111; overflow: hidden; border: none">
                                                         <div style="margin: auto; background-color: #fff; justify-content: space-between;" class="ps-product__thumbnail"><a href="{% url 'study_resource:content_detail' item.id %}" style="text-align: left;">{{ item.content|truncatewords:50 }}  ..continue reading</a>
                                 
