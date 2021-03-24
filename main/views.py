@@ -39,6 +39,20 @@ def SignInView(request):
 		return render(request, "main/sign_in.html", context)
 
 
+def SearchView(request):
+	if request.method == "POST":
+		query = request.POST.get("query")
+
+		resources = StudyResource.objects.filter(title__icontains=query)
+
+		context = {"resources": resources}
+		return render(request, "main/result.html", context)
+
+
+	else:
+		context = {}
+		return render(request, "main/search.html", context)
+
 
 def IndexView(request):
 	if request.user.is_active == True:

@@ -48,7 +48,24 @@ def SetupCbtView(request):
 		 	return HttpResponseRedirect(reverse("cbt:take_cbt", args=(cbt.id,)))
 
 		else:
-			context = {}
+			question_count_list = []
+
+			if Question.objects.all():
+				for item in range(Question.objects.all().count()):
+					question_count_list.append(int(item)+1)
+			else:
+				question_count_list.append(0)
+
+			theory_count_list = []
+
+			if Theory.objects.all():
+				for item in range(Theory.objects.all().count()):
+					theory_count_list.append(int(item)+1)
+			else:
+				theory_count_list.append(0)
+
+
+			context = {"question_count_list": question_count_list, "theory_count_list": theory_count_list}
 			return render(request, 'cbt/setup_cbt.html', context)
 
 
@@ -108,7 +125,8 @@ def TakeCbtView(request, cbt_id):
 
 
 	else:
-		context = {"cbt": cbt, "cbt_questions": cbt_questions}#, "time_exam_link": time_exam_link, "time_student_id": time_student_id}#, "time_result_id": time_result_id}
+
+		context = {"cbt": cbt, "cbt_questions": cbt_questions, "counts": counts}#, "time_exam_link": time_exam_link, "time_student_id": time_student_id}#, "time_result_id": time_result_id}
 		return render(request, "cbt/take_cbt.html", context)
 
 

@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
+<html lang="en" class="no-js">
 
 <head>
     <!-- Mobile Specific Meta -->
@@ -114,7 +114,8 @@
 
             <ul class="nav-menu">
                 
-                <li><div class="timer" onload="timer({{ exam.duration }})">
+                <li>
+                  <div class="timer" onload="timer({{ exam.duration }})">
                   <div style="color: #9a0052">Section</div>
                   <div class="time">
                     <strong style="color: #9a0052"><i class="icon-timer"> </i> <span id="time">Loading...</span></strong>
@@ -212,7 +213,7 @@
 <script type="text/javascript" src="{% static 'cbt_main/js/kinetic.js' %}"></script>
 <script type="text/javascript" src="{% static 'cbt_main/jquery.final-countdown.js' %}"></script>
 <script>
-    var time = {{ exam.duration }};
+    var time = {{ cbt.duration }};
     setInterval(function() {
       var seconds = time % 60;
       var minutes = (time - seconds) / 60;
@@ -224,8 +225,9 @@
       }
       document.getElementById("time").innerHTML = minutes + ":" + seconds;
       time--;
-      if (time == 0) {
-        window.location.href = "{% url 'main:time_up_submit' %}";
+      if (time == 0) { 
+        document.forms["autoForm"].submit();
+        
       }
     }, 1000);
 </script>
