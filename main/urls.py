@@ -5,6 +5,8 @@ app_name = "main"
 
 urlpatterns = [
 
+path("search", views.SearchView, name="search"),
+
 path("sign-in/", views.SignInView, name="sign_in"),
 path("sign-up/", views.SignUpView, name="sign_up"),
 

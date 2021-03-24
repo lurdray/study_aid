@@ -4,7 +4,7 @@ from . import views
 app_name = "study_resource"
 
 urlpatterns = [
-	
+
 	path("setup-study/", views.SetupShareView, name="setup_study"),
 	#path("study-select/", views.StudySelectView, name="study_select"),
 	path("share-study-resource/", views.ShareResourceView, name="share_resource"),
