@@ -1,5 +1,26 @@
 {% load static %}
-<header class="header header--1" data-sticky="true">
+
+<style type="text/css">
+    .current-menu-item{
+         transition: ease-out 450s;
+    }
+    .current-menu-item:hover{
+        background-color: #ed017f !important;
+        transition: ease-in-out 450ms;
+        color: #fff;
+
+    }
+
+    .current-menu-item a:hover{
+        color: #fff;
+    }
+    .mega-menu h4:hover{
+        color: #ed017f !important;
+
+    }
+</style>
+
+ <header class="header header--1" data-sticky="true">
         <div class="header__top" style="background-color: #ed017f !important">
             <div class="ps-container">
                 <div class="header__left">
@@ -8,12 +29,11 @@
                         <div class="menu__content">
                             <ul class="menu--dropdown">
                                 <ul class="menu--dropdown">
-                                <li class="current-menu-item "><a href="{% url 'cbt:setup_cbt' %}"><i class="icon-book2"></i>  Computer Based Test</a>
+                                <li class="current-menu-item " style=""><a href="{% url 'cbt:setup_cbt' %}"><i class="icon-book2"></i>  Computer Based Test</a>
                                 </li>
                                 <li class="current-menu-item "><a href="{% url 'study_resource:setup_study' %}"><i class="icon-book2"></i>  Study</a>
                                 </li>
-                                <li class="current-menu-item "><a href="{% url 'compete:compete' %}"><i class="icon-book2"></i>  Compete</a>
-                                </li>
+                                
                                 <li class="current-menu-item "><a href="{% url 'question:share_question' %}"><i class="icon-book2"></i> Objective Questions</a></li>
                                 <li class="current-menu-item "><a href="{% url 'theory:share_theory' %}"><i class="icon-book2"></i> Theory Questions</a></li>
                                 <li class="current-menu-item "><a href="{% url 'study_resource:share_resource' %}"><i class="icon-book2"></i> Resource</a></li>
@@ -38,8 +58,9 @@
                             <div class="ps-block__right">
                                 
                                 <a href="{% url 'main:profile' %}">Profile</a>
-                                <a  onclick="return confirm('Sure you want to leave this site?')" href="{% url 'main:sign_out' %}">Logout</a>
+                                <a onclick="return confirm('Sure you want to leave this site?')" href="{% url 'main:sign_out' %}">Logout</a>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -100,14 +121,16 @@
                                 </div>
                             </div>
                         </li>
-                        <li class=""><a href="{% url 'main:contact' %}" style="color: #fff !important">Help Center</a></li>
-                        <li class=""><a href="{% url 'main:all_contacts' %}" style="color: #fff !important">All Messages</a></li>
                         
                     </ul>
                     <ul class="navigation__extra">
 
                         <li>
-                            <div class="ps-dropdown language"><a style="color: #fff !important" href=""><img src="{% static 'main/img/flag/en.png' %}" alt="">Logged in as {{ request.user.username }}</a>
+                            <div class="ps-dropdown language"><a style="color: #fff !important" href="#"><img src="{% static 'main/img/flag/en.png' %}" alt="">English</a>
+                                <ul class="ps-dropdown-menu">
+                                    <li><a href="#"><img src="img/flag/germany.png" alt=""> Germany</a></li>
+                                    <li><a href="#"><img src="img/flag/fr.png" alt=""> France</a></li>
+                                </ul>
                             </div>
                         </li>
                     </ul>
@@ -115,15 +138,17 @@
             </div>
         </nav>
     </header>
-    <header class="header header--mobile" data-sticky="true">
-        <div class="header__top" style="background-color: #ed017f;">
+    <header class="header header--mobile" data-sticky="true" style="background-color: #ed017f !important;">
+        <div class="header__top">
             <div class="header__left">
                 
             </div>
             <div class="header__right">
                 <ul class="navigation__extra">
                     
-                    
+                    <li>
+                        
+                    </li>
                     <li>
                         <div class="ps-dropdown language"><a href="#"><img src="img/flag/en.png" alt="">English</a>
                             <ul class="ps-dropdown-menu">
@@ -153,7 +178,7 @@
             </div>
         </div>
         <div class="ps-search--mobile" style="background-color: #ed017f !important;">
-            <form class="ps-form--search-mobile" action="/search" method="post">
+            <form class="ps-form--search-mobile" action="/search/" method="post">
                 <div class="form-group--nest">
                     <input class="form-control" type="text" placeholder="Search something...">
                     <button><i class="icon-magnifier"></i></button>

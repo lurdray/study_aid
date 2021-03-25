@@ -18,6 +18,15 @@
         box-shadow: 5px 5px 10px #111;
         border: none;
     }
+    .btn{
+        background-color: #ed017f !important;
+        border-color: #ed017f !important;
+        border: none;
+    }
+    .btn:hover{
+        background-color: #9a0052 !important;
+        color: #fff;
+    }
 </style>
 
 <section class="ps-section--account ps-checkout">
@@ -32,7 +41,7 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="ps-block--shipping">
                                         
-                                        <h4>Contribute content to ({{ study_resource.title }}) Resourcess</h4>
+                                        <h4>Contribute content to ({{ study_resource.title }}) Resource</h4>
                                         <div class="ps-block--payment-method">
                                             {% if messages %}
                                             {% for message in messages %}
@@ -72,6 +81,10 @@
                                                                                                 
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group submit" style="justify-content: space-between;">
+                                        <a href=""><button class="btn btn-success"><i class="icon-back"></i> Back</button></a>
+                                        <a href="/"><button class="btn btn-success" style="justify-content: right; float: right;"><i class="icon-home"></i> Back</button></a>
                                     </div>
                                 </div>
                                 

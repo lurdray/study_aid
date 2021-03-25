@@ -6,46 +6,107 @@
 
 {% block content %}
 
-<div class="ps-page--single ps-page--vendor">
-        <section class="ps-store-list">
-            <div class="container">
-                
-                <div class="ps-section__wrapper">
-                    <div class="ps-section__left">
-                        <aside class="widget widget--vendor">
-                            <h3 class="widget-title">Product Search</h3>
-                            <div class="form-group--icon">
-                                <input class="form-control" type="text" placeholder="Search..."><i class="icon-magnifier"></i>
-                            </div>
-                        </aside>
-                        <aside class="widget widget--vendor">
-                            <h3 class="widget-title">Store Categories</h3>
-                            <ul class="ps-list--arrow">
-                                <li><a href="#">Interior</a></li>
-                                <li><a href="#">Lighting</a></li>
-                                <li class="menu-item-has-children"><a href="#">Exterior</a>
-                                    <ul class="sub-menu ps-list--arrow">
-                                        <li><a href="#"> Custom Grilles</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children"><a href="#">Wheels & Tires</a>
-                                    <ul class="sub-menu ps-list--categories">
-                                        <li><a href="#"> Custom Grilles</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Factory Wheels</a></li>
-                            </ul>
-                        </aside>
-                        <aside class="widget widget--vendor widget--open-time">
-                            <h3 class="widget-title"><i class="icon-clock3"></i> Store Hours</h3>
-                            <ul>
-                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
-                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
-                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
-                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
-                                <li><strong>Monday:</strong><span>8:00 am - 6:00 pm</span></li>
-                            </ul>
-                        </aside>
+<style type="text/css">
+    .ps-btn{
+        background-color: #9a0052 !important;
+        color: #fff;
+        transition: 0.25s;
+    }
+    a .ps-btn:hover{
+        background-color: #ed017f !important;
+        color: black;
+        transition: 0.25s;
+    }
+    .pagination .active a{
+        background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+    .pagination a:hover{
+        background-color: #9a0052 !important;
+        color: #fff !important;
+    }
+    .img-video {
+          display: block;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: #d1002c;
+          -webkit-animation: pulse 2s infinite;
+          animation: pulse 2s infinite;
+          position: absolute;
+          bottom: 10%;
+          right: 35%;
+          margin-right: -30px; 
+      }
+    .ps-block__inquiry:hover{
+        background-color:  #009900 !important;
+        color: #fff; 
+    }
+    .ps-block__inquiry{
+        background-color:  #000000 !important;
+        color: #fff; 
+    }
+    .ps-block__inquiry a{
+        color: #fff;
+    }
+    .ps-btn{
+        background-color: #ed017f !important;
+        border: hidden;
+    }
+    .ps-btn:hover{
+        background-color: #9a0052 !important;
+        color: #fff;
+    }
+    .ps-block--payment-method img:hover {
+        background-color: #9a0052 !important;
+    }
+    
+</style>
+
+<div class="ps-page--shop" id="shop-sidebar" >
+        <div class="container">
+            <div class="ps-layout--shop" >
+                <div class="ps-layout__left" >
+                    <aside class="widget widget_shop" style=" box-shadow: 5px 5px 10px #111; overflow: hidden; border: none; border-radius: 5px 5px 0 0">
+                        <h4 class="widget-title">{{ study_resource.title }} </h4>
+                        <ul class="ps-list--categories">
+                            <li style="display: flex; justify-content: space-between;">Contributors:<span><img src="{{ item.contributor.image.url }}" alt="" style="border-radius: 50%; height: 20px; width: 20px;">  Raymond</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Conservations: <span class="sub-togglex">{{ study_resource.chats.count }}</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Ebooks on this Resourse: <span class="sub-togglex"> {{ study_resource.ebooks.count }}</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Contents on this Resource: <span class="sub-togglex">{{ study_resource.ebooks.count }}</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Videos on this Resources: <span class="sub-togglex"> {{ study_resource.videos.count }}</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Links on this Resourse: <span class="sub-togglex">{{ study_resource.links.count }}</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Images on this Resourse: <span class="sub-togglex">{{ study_resource.images.count }}</span></li>
+                                
+                        </ul>
+                    </aside>
+                        
+
+                        <aside class="widget widget_shop" style=" box-shadow: 5px 5px 10px #111; overflow: hidden; border: none; border-radius: 5px 5px 0 0">
+
+                        <p><strong> How prepared are you? take Computer Based Test to find out</strong>
+                            <a href="{% url 'cbt:setup_cbt' %}"><br>
+                            <button class="btn btn-success">Take Test</button>
+
+                        </a>
+
+                            <hr>
+                        <p><strong> Click here to share objective questions<style type="text/css"></style></p>
+                            <a href="{% url 'question:share_question' %}">
+                             <button  class="btn btn-success">Share Objective Questions</button>
+                        </a>
+                        <hr>
+                        <p><strong> Click to share theory questions</strong></p>
+                        <a href="{% url 'theory:share_theory' %}">
+                             <button class="btn btn-success">Share Theory Questions</button>
+                        </a>
+                        <hr>
+                         <p><strong> Click here to Share Resources</strong></p>
+                         <a href="{% url 'study_resource:share_resource' %}"><p>
+                             <button class="btn btn-success">Share resources</button>
+                        </a>
+                        
+                    </aside>
                     </div>
                     <div class="ps-section__right">
                        <div class="ps-post-comments">

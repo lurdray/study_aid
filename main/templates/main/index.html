@@ -9,41 +9,7 @@
         border: none;
 
     }
-</style>
-<div class="ps-form__content">
-    <div class="ps-container">
-
-        <div style="margin-top: 10px" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{message.tags}}  text-center" role="alert" style="background-color: #1DB954; color: #111; border-radius: 6px; font-weight: 600;">
-                {{ message }}
-                </div>
-        {% endfor %}
-        {% endif %}
-        </div>
-    </div>
-</div>
-<div id="homepage-1"> 
-        <div class="ps-home-banner ps-home-banner--1">
-            <div class="ps-container">
-                <div class="ps-section">
-                    <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
-                        <div class="ps-banner"><a href="#"><img src="{% static 'main/img/slider/home-1/frati13.gif' %}" alt=""></a></div>
-                        <div class="ps-banner"><a href="#"><img src="{% static 'main/img/slider/home-1/frati13.gif' %}" alt=""></a></div>
-                        <div class="ps-banner"><a href="#"><img src="{% static 'main/img/slider/home-1/frati13.gif' %}" alt=""></a></div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-
-        
-
-
-            <style type="text/css">
-                .accordion-item{
+    .accordion-item{
                     background-color: #9a0052;
                     border-right: 0.4rem;
                     margin-bottom: 1rem;
@@ -99,10 +65,38 @@
                 .accordion-item:target .accordion-link .icon-minus{
                     display: block;
                 }
+</style>
+<div class="ps-form__content">
+    <div class="ps-container">
+
+        <div style="margin-top: 10px" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{message.tags}}  text-center" role="alert" style="background-color: #1DB954; color: #111; border-radius: 6px; font-weight: 600;">
+                {{ message }}
+                </div>
+        {% endfor %}
+        {% endif %}
+        </div>
+    </div>
+</div>
+<div id="homepage-1"> 
+        <div class="ps-home-banner ps-home-banner--1">
+            <div class="ps-container">
+                <div class="ps-section">
+                    <div class="ps-carousel--nav-inside owl-slider" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+                        <div class="ps-banner"><a href="#"><img style="width: 100%; object-fit: cover; border-radius: 10px" src="{% static 'main/img/studyaid2.png' %}" alt=""></a></div>
+                        <div class="ps-banner"><a href="#"><img style="width: 100%; object-fit: cover; border-radius: 10px" src="{% static 'main/img/studyaid1.png' %}" alt=""></a></div>
+                        
+                    </div>
+                </div>
                 
-            </style>
+            </div>
+        </div>
+    </div>
+
             <!-- Start Faculty Area -->
-<section class="ps-section--account ps-checkout">
+<section class="ps-section--account ps-checkout" style="margin-top: -40px">
 
     <div class="container">
                              
@@ -115,8 +109,8 @@
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                     <div class="ps-block--shipping">
                                         
-                                        <div class="ps-block--payment-method">
-                                            <div class="ps-tabs">
+                                        <div class="ps-block--payment-method" style="border-radius: 10px 10px 0 0">
+                                            <div class="ps-tabs" style="border-radius: 10px 10px 0 0">
                                                 <div class="ps-tab active" id="visa">
                                                         <div class="form-group" style="background-color: #fff; padding: 20px">
                                                             <h4 style="text-align: center;">Welcome to StudyAid</h4>
@@ -200,10 +194,11 @@
                                             {% for item in contents %}
 
 
-                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
+                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                 
-                                <div class="ps-post ps-post--small-thumbnail">
-                        <div class="ps-post__thumbnail"><a class="ps-post__overlay" href="blog-detail.html"></a><img src="{% static 'main/img/1.jpg' %}" alt="">
+                        <div class="ps-post ps-post--small-thumbnail">
+                        <div style="position: relative; padding-left: 40px" class="ps-post__thumbnail"><a class="ps-post__overlayx" href="{% url 'study_resource:content_detail' item.id %}"></a><img style="justify-content: center;align-items: center; " 
+                         src="{% static 'main/img/1.jpg' %}" alt="">
                             <div ><i class=""></i></div>
                         </div>
                         <style type="text/css">
@@ -211,7 +206,7 @@
                                 color: #ed017f;
                             }
                         </style>
-                        <div class="ps-post__content">
+                        <div class="ps-post__content" style="padding-left: 40px; padding-left: -20px">
                             <div class="ps-post__top">
                                 <div class="ps-post__meta">
                                 </div><a class="ps-post__title" href="{% url 'study_resource:content_detail' item.id %}">{{ item.title }}</a>
@@ -241,9 +236,9 @@
                             <p><div class="row ps-block--payment-methodx col-lg-12" style="margin: auto;">
                                             {% for item in videos %}
 
-                                    <div class="contact-item col-xl-4 col-lg-12" style="text-align: center;">
+                                    <div class="contact-item col-xl-4 col-lg-6 col-6 " style="text-align: center;">
                                             <div class="ps-productX ">
-                                                <div class="ps-product__thumbnail" style="margin: auto;"><a href="{{ item.video.url }}"><video width="320" height="157" controls><source src="{{ item.video.url }}" type="video/mp4"></video> </a></div>
+                                                <div class="ps-product__thumbnail" style="margin: auto;"><a href="{{ item.video.url }}"><video width="260" height="157" controls><source src="{{ item.video.url }}" type="video/mp4"></video> </a></div>
                                          </div>         
                                         </div>
 
@@ -285,18 +280,21 @@
 
                                         <div class="contact-item col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6 " style="text-align: center;">
                         
-                                                <div class="ps-product contact-item-inner outer-shadow " style="color: #000000; text-align: center; background-color: #fff">
+                                                <div class="ps-product contact-item-inner outer-shadow "  style="background-color: #fff; overflow: hidden; box-shadow: 5px 5px 10px #111; overflow: hidden; border: none; padding-bottom: 5px">
                                         <div style="margin: auto; background-color: #fff" class="ps-product__thumbnail"><a href="https://{{ item.link }}">{{ item.link }}
                                 
                                         <h5>by {{ item.contributor }}</h5>
+
                                         </a>
                                         </div>
+
                                         </div>
+                                        <br>
                                     </div>
 
 
                                     {% endfor %}
-                                        </div></p>
+                                        </div><br></p>
                            
                         </div>
                     </div>

@@ -51,6 +51,17 @@
     .ps-block__inquiry a{
         color: #fff;
     }
+    .btn{
+        background-color: #ed017f !important;
+        border: hidden;
+    }
+    .btn:hover{
+        background-color: #9a0052 !important;
+        color: #fff;
+    }
+    .ps-block--payment-method img:hover {
+        background-color: #9a0052 !important;
+    }
     
 </style>
 
@@ -59,46 +70,41 @@
         <section class="ps-store-list">
             <div class="container">
                 <aside class="ps-block--store-banner">
-                    <div class="ps-block__content bg--cover" data-background="{% static 'main/img/slider/home-1/frati13.gif' %}">
-                        <h4 style="color:#fff">{{ study_resource.title }}</h4><a class="ps-block__inquiry" href="{% url 'study_resource:contribute_chat' study_resource.id %}" style="color: #fff"><img  style="height: 50px; width: 50px" src="https://img.icons8.com/bubbles/2x/chat.png" > Join Forum</a>
-                    </div>
-                    <div class="ps-block__user" style="background-color: #9a0052 !important;" >
-                        <div class="ps-block__user-avatar"><img   src="{% static 'main/img/5.jpg' %}" alt="">
-                            <p ><img  style="height: 50px; width: 50px" src="https://img.icons8.com/bubbles/2x/chat.png" > Author</p>
-
+                    <div class="ps-carousel--nav-inside owl-sliderx " style="border-radius: 20px 20px 0 0" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1" data-owl-duration="1000" data-owl-mousedrag="on">
+                        <div class="ps-banner "><a href="#"><img style="height: 200px; width: 100%; object-fit: cover;" src="{% static 'main/img/slider/home-1/frati13.gif' %}" alt=""></a>
                         </div>
+                        
+                    </div>
+                    
+                    <div class="ps-block__userx" style="background-color: #9a0052 !important; margin-bottom: -20px;" >
+                        
                         
                         
                     </div>
                 </aside>  
+            </div>
 
-                <div class="ps-section__wrapper">
-                    <div class="ps-section__left">
-                        <aside class="widget widget--vendor">
-                            <h3 class="widget-title">Product Search</h3>
-                            <div class="form-group--icon">
-                                <input class="form-control" type="text" placeholder="Search..."><i class="icon-magnifier"></i>
-                            </div>
-                        </aside>
+
+        <div class="ps-page--shop" id="shop-sidebar" >
+        <div class="container">
+            <div class="ps-layout--shop" >
+                <div class="ps-layout__left" >
+                    <aside class="widget widget_shop" style=" box-shadow: 5px 5px 10px #111; overflow: hidden; border: none; border-radius: 5px 5px 0 0">
+                        <h4 class="widget-title">{{ study_resource.title }} </h4>
+                        <ul class="ps-list--categories">
+                            <li style="display: flex; justify-content: space-between;">Contributors:<span><img src="{{ item.contributor.image.url }}" alt="" style="border-radius: 50%; height: 20px; width: 20px;">  Raymond</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Conservations: <span class="sub-togglex">{{ study_resource.chats.count }}</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Ebooks on this Resourse: <span class="sub-togglex"> {{ study_resource.ebooks.count }}</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Contents on this Resource: <span class="sub-togglex">{{ study_resource.ebooks.count }}</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Videos on this Resources: <span class="sub-togglex"> {{ study_resource.videos.count }}</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Links on this Resourse: <span class="sub-togglex">{{ study_resource.links.count }}</span></li><hr>
+                            <li style="display: flex; justify-content: space-between;" class="current-menu-item menu-item-has-children">Images on this Resourse: <span class="sub-togglex">{{ study_resource.images.count }}</span></li>
+                                
+                        </ul>
+                    </aside>
                         
-                        <aside class="widget widget--vendor widget--open-time">
-                            <h3 class="widget-title"><i class="icon-book"></i> {{ study_resource.description }}</h3>
-                            <ul>
-                                <li><strong>Contributors:</strong><span><img src="{{ item.contributor.image.url }}" alt="" style="border-radius: 50%; height: 20px; width: 20px;">  Raymond</span></li>
-                                
-                                <li><strong>Date Created:</strong><span>{{ study_resource.pub_date }}</span></li>
-                                
-                                <li><strong>Conservations: {{ study_resource.chats.count }}</strong></li>
-                                <li><strong>Ebooks on this Resourse: {{ study_resource.ebooks.count }}</strong></li>
-                                <li><strong>Contents on this Resource: {{ study_resource.contents.count }}</strong></li>
-                                <li><strong>Videos on this Resources: {{ study_resource.videos.count }}</strong></li>
-                                <li><strong>Links on this Resources: {{ study_resource.links.count }}</strong></li>
-                                <li><strong>Images on this Resource: {{ study_resource.images.count }}</strong></li>
-                            </ul>
 
-
-                        </aside>
-                        <aside class="widget widget--vendor widget--open-time">
+                        <aside class="widget widget_shop" style=" box-shadow: 5px 5px 10px #111; overflow: hidden; border: none; border-radius: 5px 5px 0 0">
 
                         <p><strong> How prepared are you? take Computer Based Test to find out</strong>
                             <a href="{% url 'cbt:setup_cbt' %}"><br>
@@ -107,7 +113,7 @@
                         </a>
 
                             <hr>
-                        <p><strong> Click me- to share objective questions<style type="text/css"></style></p>
+                        <p><strong> Click here to share objective questions<style type="text/css"></style></p>
                             <a href="{% url 'question:share_question' %}">
                              <button  class="btn btn-success">Share Objective Questions</button>
                         </a>
@@ -132,7 +138,7 @@
                 <div class="">
                     <div class="ps-product--detail ps-product--fullwidth">
                         
-                        <div class=" ps-product__contentx ps-tab-rootx"  >
+                        <div class=" ps-product__contentx ps-tab-rootx" style="height: fixe" >
                             <ul class="ps-tab-list ps-store-link" style=" box-shadow: 5px 5px 10px #111; overflow: hidden; border: none">
                                 <li class="active"><a href="#tab-1"><small>Contents: ({{ study_resource.contents.count }})</small></a></li>
                                 <li><a href="#tab-2"><small>Videos: ({{ study_resource.videos.count }})</small></a></li>
@@ -151,24 +157,46 @@
                                         <div class="ps-top-categories">
 
                                         <div class="section-title ps-block--payment-method">
-                                            <h2 style="margin: 15px" data-heading="Important Content"></h2>
+                                            <h2 style="margin: 15px" data-heading="Important Content"></h2><a href="{% url 'study_resource:contribute_chat' study_resource.id %}">
+                                                
+                                            <img  data-toggle="tooltip" data-placement="top" title="Go to Chat-Forum" style="height: 50px; width: 50px; justify-content: right; float:right; background-color: #000; border-radius: 50%; cursor: pointer;" src="https://img.icons8.com/bubbles/2x/chat.png" ></a>
+
                                         </div>
                                         <div class="row ps-block--payment-method col-lg-12" style="margin: auto;">
                                             {% for item in study_resource.contents.all %}
 
-                                            <div class="contact-item col-xl-6 col-lg-12  " style="text-align: center; margin-bottom: 10px; ">
-                                                <a href="{{ item.link }}">
-                                                    <div class="ps-product contact-item-inner outer-shadow " style="color: #000000; text-align: center; background-color: #fff; box-shadow: 5px 5px 10px #111; overflow: hidden; border: none">
-                                                        <div style="margin: auto; background-color: #fff; justify-content: space-between;" class="ps-product__thumbnail"><a href="{% url 'study_resource:content_detail' item.id %}" style="text-align: left;">{{ item.content|truncatewords:50 }}  ..continue reading</a>
+                                            
+
+
+                                        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                 
-                                
-                                                        </div>
-                                                        <p>by {{ item.contributor }}</p>
-                                                    </div>
+                                            <div class="ps-post ps-post--small-thumbnail">
+                                                <div class="ps-post__thumbnail"><a href="{% url 'study_resource:content_detail' item.id %}"></a><img
+                                                src="{% static 'main/img/1.jpg' %}" alt="">
+                                                    <div ><i class=""></i></div>
+                                                 </div>
+                                                <style type="text/css">
+                                                    .ps-post__top a:hover{
+                                                        color: #ed017f;
+                                                     }
+                                                 </style>
+                                                 <div class="ps-post__content">
+                                                    <div class="ps-post__top">
+                                                        <div class="ps-post__meta">
+                                                     </div>
+                                                     <a class="ps-post__title" href="{% url 'study_resource:content_detail' item.id %}">{{ item.title }}</a>
+                                                    <h5><small><a  href="{% url 'study_resource:content_detail' item.id %}">{{ item.content|truncatewords:10 }}</small>  <br><br>..continue reading</a></h5>
                                                 </div>
-                                                </a>
+                                            <div class="ps-post__bottom">
+                                            <p>December 17, 2021 by<a href="#"> {{ item.contributor }}</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                                
 
                                             {% endfor %}
+
                                         </div>
                                  </div>
                      
@@ -184,6 +212,8 @@
 
                                 <div class="section-title ps-block--payment-method">
                                     <h2 style="margin: 15px" data-heading="Education Videos"></h2>
+                                    <a href="{% url 'study_resource:contribute_chat' study_resource.id %}">
+                                            <img data-toggle="tooltip" data-placement="top" title="Go to Chat-Forum" style="height: 50px; width: 50px; justify-content: right; float:right; background-color: #000; border-radius: 50%; cursor: pointer;" src="https://img.icons8.com/bubbles/2x/chat.png" ></a>
                                 </div>
                                 <div class="row ps-block--payment-methodx col-lg-12">
                                     {% for item in study_resource.videos.all %}
@@ -206,13 +236,15 @@
                                 <div class="ps-tab" id="tab-3">
                                     <div class="section-title ps-block--payment-method">
                                         <h2 style="margin: 15px" data-heading="Ebooks on Demand"></h2>
+                                         <a href="{% url 'study_resource:contribute_chat' study_resource.id %}">
+                                            <img data-toggle="tooltip" data-placement="top" title="Go to Chat-Forum" style="height: 50px; width: 50px; justify-content: right; float:right; background-color: #000; border-radius: 50%; cursor: pointer;" src="https://img.icons8.com/bubbles/2x/chat.png" ></a>
                                     </div>
                                     <div class="row ps-block--payment-method col-lg-12" style="margin: auto;">
                                         {% for item in study_resource.ebooks.all %}
 
                                         <div class="contact-item col-xl-4 col-lg-4 ">
                                             <div style="background-color: #fff; overflow: hidden; box-shadow: 5px 5px 10px #111; overflow: hidden; border: none" class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{{ item.ebook.url }}"></a><img  style="height: 100px; width: 180; " src="{% static 'main/img/5aa3ae359fc609199d0ff247.png' %}" alt="">
-                                                <p>{{ study_resource.title }} ebook by {{ item.contributor }}</p>
+                                                <p style="color: #111">{{ study_resource.title }} ebook by {{ item.contributor }}</p>
                                             </div>
                                         </div>
                                         {% endfor %}
@@ -229,13 +261,15 @@
                                     <div class="ps-top-categories">
                                     <div class="section-title ps-block--payment-method">
                                         <h2 style="margin: 15px" data-heading="Important Links"></h2>
+                                         <a href="{% url 'study_resource:contribute_chat' study_resource.id %}">
+                                            <img data-toggle="tooltip" data-placement="top" title="Go to Chat-Forum" style="height: 50px; width: 50px; justify-content: right; float:right; background-color: #000; border-radius: 50%; cursor: pointer;" src="https://img.icons8.com/bubbles/2x/chat.png" ></a>
                                     </div>
                                     <div class="row ps-block--payment-method col-lg-12" style="margin: auto;">
                                         {% for item in study_resource.links.all %}
 
                                         <div class="contact-item col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6 " style="text-align: center;">
                         
-                                                <div class="ps-product contact-item-inner outer-shadow " style="color: #000000; text-align: center; background-color: #fff">
+                                                <div class="ps-product contact-item-inner outer-shadow " style="color: #000000; text-align: center; background-color: #fff; box-shadow: 5px 5px 10px #111; overflow: hidden; border: none; border-radius: 5px 5px 0 0">
                                         <div style="margin: auto; background-color: #fff" class="ps-product__thumbnail"><a href="https://{{ item.link }}">{{ item.link }}
                                 
                                         <p>by {{ item.contributor }}</p>
@@ -250,7 +284,7 @@
                                     </div>
                                     <div class="ps-pagination" >
                                         
-                                        <a href="{% url 'study_resource:contribute_link' study_resource.id %}"><button class="ps-btn">Contribute to these Link</button></a>
+                                        <a href="{% url 'study_resource:contribute_link' study_resource.id %}"><button class="ps-btn">Contribute to these Links</button></a>
                                         
                                     </div>
                                     <br><br>
@@ -261,6 +295,11 @@
 
 
                                 <div class="ps-tab active" id="tab-6">
+                                    <div class="section-title ps-block--payment-method">
+                                        <h2 style="margin: 15px" data-heading="Study Images"></h2>
+                                         <a href="{% url 'study_resource:contribute_chat' study_resource.id %}">
+                                            <img data-toggle="tooltip" data-placement="top" title="Go to Chat-Forum" style="height: 50px; width: 50px; justify-content: right; float:right; background-color: #000; border-radius: 50%; cursor: pointer;" src="https://img.icons8.com/bubbles/2x/chat.png" ></a>
+                                    </div>
                                     <div class="ps-section__content">
                             <div class="row">
                                 {% for item in study_resource.images.all %}

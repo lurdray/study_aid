@@ -103,6 +103,7 @@ def ContentDetailView(request, content_id):
 def ContributeVideoView(request, id):
 	if request.user.is_active == True:
 		study_resource = StudyResource.objects.get(id=id)
+		study_resources = sorted(StudyResource.objects.all(), key=lambda x: random.random())[:10]
 
 		if request.method == "POST":
 
@@ -128,7 +129,8 @@ def ContributeVideoView(request, id):
 			
 
 		else:
-			context = {"study_resource": study_resource}
+
+			context = {"study_resource": study_resource, "study_resources":study_resources}
 			return render(request, "study_resource/contribute_video.html", context)
 
 	else:

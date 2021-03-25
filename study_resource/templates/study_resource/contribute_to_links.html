@@ -14,38 +14,18 @@
         background-color: #9a0052 !important;
         color: #fff;
     }
-
-    .upload-box{
-        font-size: 16px;
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 5px 5px 10px black;
-        height: 40px;
-        width: 100%;
-        outline: none;
-    }
-    ::-webkit-file-upload-button{
-        color: #fff;
-        background-color: #ed017f !important;
-        cursor: pointer;
-        border-radius: 5px;
-        border: none;
-
-        box-shadow: 1px 0 1px 1px #9a0052 !important;
-        outline: none;
-        height: 35px;
-        margin-top: -1px;
-
-    }
-    ::-webkit-file-upload-button:hover{
-        color: #fff;
-        background-color: #9a0052 !important;
-        box-shadow: 1px 0 1px 1px #ed017f;
-
-    }
     .alert{
         box-shadow: 5px 5px 10px #111;
         border: none;
+    }
+    .btn{
+        background-color: #ed017f !important;
+        border-color: #ed017f !important;
+        border: none;
+    }
+    .btn:hover{
+        background-color: #9a0052 !important;
+        color: #fff;
     }
 </style>
 
@@ -66,12 +46,12 @@
                                 <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                                     <div class="ps-block--shipping">
                                         
-                                        <h4>Contribute to ({{ study_resource.title }}) Resourcess</h4>
+                                        <h4>Contribute to ({{ study_resource.title }}) Resource</h4>
                                         <div class="ps-block--payment-method">
-                                        {% if messages %}
+                                            {% if messages %}
                                             {% for message in messages %}
                                                 <div class="alert alert-{{message.tags}} text-center" role="alert" style="background-color: #1DB954; color: #fff; border-radius: 6px; font-weight: 600;">
-                                            {{ message }}
+                                                    {{ message }}
                                                 </div>
                                             {% endfor %}
                                         {% endif %}
@@ -98,8 +78,7 @@
                                                                         <div class="col-12">
                                                                             <div class="form-group">
                                                                                 <label>URL Link</label><br />
-                                                                               
-                                                                                 <input type="file" name="link" class="form-controlx upload-box" > 
+                                                                                <input style=" box-shadow: 5px 5px 10px #111; overflow: hidden; border: none; border-radius: 5px" type="text" name="link" class="form-control" placeholder="URL link">
                                                                             </div>
                                                                         </div>
                                                                         
@@ -119,6 +98,10 @@
                                                                                                 
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="form-group submit" style="justify-content: space-between;">
+                                        <a href=""><button class="btn btn-success"><i class="icon-back"></i> Back</button></a>
+                                        <a href="/"><button class="btn btn-success" style="justify-content: right; float: right;"><i class="icon-home"></i> Back</button></a>
                                     </div>
                                 </div>
                                 
