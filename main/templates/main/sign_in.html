@@ -31,6 +31,23 @@
     .alert{
         box-shadow: 5px 5px 10px #111;
         border: none;
+
+    }
+    @keyframes show-toast {
+        0%, 100%{
+        transform: translateY(0);
+        }
+        50%{
+            transform: translateY(25px);
+        }
+    }
+
+
+    .notification.is-toast {
+        visibility: visible;
+        z-index: 1000;
+        animation: show-toast 3s ease-out infinite;
+        
     }
 </style>
 
@@ -38,18 +55,19 @@
 <div class="ps-my-account" style="margin-top: -90px;">
             <div class="container">
                 <form class="ps-form--account ps-tab-root" action=""  method="post">
-                    {% if messages %}
-                    {% for message in messages %}
-                    <div class="alert alert-{{message.tags}} text-center" role="alert" style="background-color: #1DB954; color: #111; border-radius: 6px; font-weight: 600;">
-                    {{ message }}
-                     </div>
-                    {% endfor %}
-                    {% endif %}
+                    
 
                     {% csrf_token %}
                     <ul class="ps-tab-list">
                         <li class="active"><a href="#sign-in">Sign-in</a></li>
                     </ul>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="notification is-success is-toast alert alert-{{message.tags}} text-center" role="alert" style="background-color: #1DB954; color: #fff; border-radius: 6px; font-weight: 600;">
+                    {{ message }}
+                     </div>
+                    {% endfor %}
+                    {% endif %}
                     <div class="ps-tabs">
                         <div class="ps-tab active" id="sign-in">
                             <div class="ps-form__content">

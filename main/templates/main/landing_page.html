@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study-Aid Landing Page</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'landing/style.css' %}">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <a href="#" class="logo">ST<span class="fas fa-book"></span>DY-AID</a>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a class="active" href="#home">home</a></li>
+            <li><a href="#muri-section--one">Why StudyAid</a></li>
+            <li><a href="#muri-section--two">How to use</a></li>
+            <li><a href="#muri-section--three">Who can use</a></li>
+            <li><a href="#yeah">Ready</a></li>
+            <li><a href="{% url 'main:sign_up' %}">Get Started</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+
+    <div class="content">
+
+        <h3><span>Study Aid</span></h3><br>
+        <h3 class="text-gradient-mint-blue-dark">Where the world come to Learn</h3>
+        <p class="box">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="one">
+            <a style="margin-right: 20px" href="{% url 'main:sign_up' %}" class="btn">Sign-Up</a>
+            <a href="{% url 'main:sign_in' %}" class="btn">Sign-In</a>
+        </div>
+
+
+    </div>
+
+     <div class="image">
+        <img src="{% static 'landing/images/Education-online-concept-web-by-using-smartphone-on-transparent-background-PNG.png' %}" alt="">
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<section class="muri-section--one" id="muri-section--one">
+
+    <h1 class="heading">Why <span>Study</span>-Aid</h1>
+
+    <div class="box-container" style="display: flex;">
+        
+        <div class="box">
+            <img src="https://thumbs.dreamstime.com/b/happy-student-holding-paper-excellent-test-exam-result-vector-illustration-happy-student-holding-paper-excellent-test-130046995.jpg" alt="">
+            <h3>Pass your Exams</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et ab magni consequatur, quae in repellat. Placeat deserunt vitae alias dignissimos!</p>
+            
+        </div>
+
+        <div class="box">
+            <img style="object-fit: contain;" src="{%  static 'landing/images/pngwing.com (16).png' %}" alt="">
+            <h3>Share Resource Online</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et ab magni consequatur, quae in repellat. Placeat deserunt vitae alias dignissimos!</p>
+
+        </div>
+
+        <div class="box">
+            <img src="https://image.freepik.com/free-vector/education-online-computer-desk-with-books-backpack-coronavirus-pandemic_24640-61498.jpg" alt="">
+            <h3>Familiarize with the Structure of E-Exams</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et ab magni consequatur, quae in repellat. Placeat deserunt vitae alias dignissimos!</p>
+
+        </div>'
+        <a href="{% url 'main:sign_up' %}" class="btn">Sign Up</a>
+    </div>
+
+</section>
+
+<!-- muri-section-two section starts  -->
+
+<section class="muri-section--two" id="muri-section--two">
+
+    <div class="content">
+        <h1 class="heading">How to use study <span>Study</span>-Aid?</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <ul>
+            <div class="one">
+                <li>Take CBT</li>
+                <li>Share Resource</li>
+                <li>Share Resource</li>
+                <li>Share Object Questions</li>
+                <li>Share Object Questions</li>
+            </div>
+            <div class="two">            
+                <li>Chat with Friends</li>
+                <li>many more..</li>
+                <li>Share Theory Questions</li>
+                <li>Share Theory Questions</li>
+                <li>Share Theory Questions</li>
+            </div>
+        </ul>
+        <a href="{% url 'main:sign_up' %}" class="btn">Get Started</a>
+    </div>
+
+    <div class="image">
+        <img src="{% static 'landing/images/pnghut_pedagogy-massive-open-online-course-education-university-student-diagram.png' %}" alt="">
+    </div>
+
+</section>
+
+<!-- muri-section--two section ends -->
+
+<!-- muri-section--three starts  -->
+
+<section class="muri-section--three yeah" id="muri-section--three " >
+
+    <div class="row" style="border-color: 10px red">
+
+        <div class="image">
+            <img src="{% static 'landing/images/PngItem_2423331.png' %}" alt="">
+        </div>
+
+        <div class="content">
+            <h1 class="heading">Who is <span>Study-Aid</span> for?</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat nulla, dolor excepturi repellendus officiis expedita saepe veniam minima adipisci tenetur?</p>
+            <ul>
+                <li>Do Not Share Eating</li>
+                <li>Do Not Touch Your Face or Nose</li>
+                <li>Do Not Contact Sick People</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="content">
+            <h1 class="heading">Now you <span>Kwow</span> what else</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat nulla, dolor excepturi repellendus officiis expedita saepe veniam minima adipisci tenetur?</p>
+            <ul>
+                <li>Wash Your Hands For 20 sec</li>
+                <li>Wear a Mask if Available</li>
+                <li>Seek Medical Care Regularly</li>
+            </ul>
+        </div>
+
+        <div class="image">
+            <img src="https://thetalononline.org/wp-content/uploads/2020/09/Distance-Learning-Article-PIC.png" alt="">
+        </div>
+
+    </div>
+
+</section>
+
+<!--"yeah start --->
+<section class="yeah" id="yeah">
+    <h1 class="heading">Are you ready to <span>Pass</span> with flying colors</h1>
+
+    <div class="box-container">
+
+        <div class="box" style="width: 100%; box-shadow: 5px 5px 50px #111; border-radius: 10px">
+            <img style="" src="https://thumbs.dreamstime.com/b/happy-student-holding-paper-excellent-test-exam-result-vector-illustration-happy-student-holding-paper-excellent-test-130046995.jpg" alt="">
+            <h3>Let's Get Started</h3>
+            <p style="font-size: 15px">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et ab magni consequatur, quae in repellat. Placeat deserunt vitae alias dignissimos!</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- "yeah ends -->
+
+
+
+
+
+<a href="#home" class="scroll-top">
+    <img src="{% static 'landing/images/scroll-img.png' %}" alt="">
+</a>
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+        
+
+    <p style="padding: 20px; color: #fff; font-size: 10px">© 2021 Nigtech.net. All Rights Reserved</p>
+
+</section>
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- custom js file link  -->
+<script src="{% static 'landing/script.js' %}"></script>
+
+
+</body>
+</html>
