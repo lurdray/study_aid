@@ -17,6 +17,11 @@ import string
 
 # Create your views here.
 
+def LandingPageView(request):
+
+	return render(request, "main/landing_page.html")
+
+
 def SignInView(request):
 	if request.method == "POST":
 		username = request.POST.get("username")
@@ -76,7 +81,7 @@ def IndexView(request):
 
 
 	else:
-		return HttpResponseRedirect(reverse("main:sign_up"))
+		return HttpResponseRedirect(reverse("main:landing_page"))
 
 
 
@@ -185,7 +190,7 @@ def SignUpView(request):
 def UserLogoutView(request):
 	logout(request)
 	messages.success(request, "Logged Out successfully")
-	return HttpResponseRedirect(reverse("main:sign_in"))
+	return HttpResponseRedirect(reverse("main:landing_page"))
 
 
 

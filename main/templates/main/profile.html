@@ -55,6 +55,27 @@
         box-shadow: 1px 0 1px 1px #ed017f;
 
     }
+    .alert{
+        box-shadow: 5px 5px 10px #111;
+        border: none;
+
+    }
+    @keyframes show-toast {
+        0%, 100%{
+        transform: translateY(0);
+        }
+        50%{
+            transform: translateY(25px);
+        }
+    }
+
+
+    .notification.is-toast {
+        visibility: visible;
+        z-index: 1000;
+        animation: show-toast 3s ease-out infinite;
+        
+    }
 </style>
 
 
@@ -62,7 +83,7 @@
             <div class="container">
                {% if messages %}
                     {% for message in messages %}
-                    <div class="alert alert-{{message.tags}} text-center" role="alert" style="background-color: rgb(40, 207, 40); color: #111; border-radius: 6px; font-weight: 600;">
+                    <div class="notification is-success is-toast alert alert-{{message.tags}} text-center" role="alert" style="background-color: rgb(40, 207, 40); color: #fff; border-radius: 6px; font-weight: 600;">
                     {{ message }}
                      </div>
                     {% endfor %}
@@ -231,17 +252,31 @@
                                         <div class="row ps-block--payment-method col-lg-12" style="margin: auto;">
                                             {% for item in contents %}
 
-                                            <div class="contact-item col-xl-6 col-lg-12  " style="text-align: center; margin-bottom: 10px">
-                                                <a href="{{ item.link }">
-                                                    <div class="ps-product contact-item-inner outer-shadow " style="color: #000000; text-align: center; background-color: #fff; overflow: hidden;">
-                                                        <div style="margin: auto; background-color: #fff; justify-content: space-between;" class="ps-product__thumbnail"><a href="{% url 'study_resource:content_detail' item.id %}" style="text-align: left;">{{ item.content|truncatewords:50 }}  ..continue reading</a>
+                                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 ">
                                 
-                                
-                                                        </div>
-                                                        <p>by {{ item.contributor }}</p>
-                                                    </div>
+                                            <div class="ps-post ps-post--small-thumbnail">
+                                                <div class="ps-post__thumbnail"><a href="{% url 'study_resource:content_detail' item.id %}"></a><img
+                                                src="{% static 'main/img/1.jpg' %}" alt="">
+                                                    <div ><i class=""></i></div>
+                                                 </div>
+                                                <style type="text/css">
+                                                    .ps-post__top a:hover{
+                                                        color: #ed017f;
+                                                     }
+                                                 </style>
+                                                 <div class="ps-post__content">
+                                                    <div class="ps-post__top">
+                                                        <div class="ps-post__meta">
+                                                     </div>
+                                                     <a class="ps-post__title" href="{% url 'study_resource:content_detail' item.id %}">{{ item.title }}</a>
+                                                    <h5><small><a  href="{% url 'study_resource:content_detail' item.id %}">{{ item.content|truncatewords:10 }}</small>  <br><br>..continue reading</a></h5>
                                                 </div>
-                                                </a>
+                                            <div class="ps-post__bottom">
+                                            <p>December 17, 2021 by<a href="#"> {{ item.contributor }}</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                                             {% endfor %}
                                         </div>
@@ -268,7 +303,7 @@
                                      {% endfor %}
                                 </div>
                                 
-                                    <br><br>
+                                    <br><br><br>
                                 </div>
                                 <div class="ps-tab" id="tab-3">
                                     <div class="section-title ps-block--payment-method">

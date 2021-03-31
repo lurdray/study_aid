@@ -13,7 +13,7 @@
             <div class="row">
             	{% for item in study_resources %}
                 <div class="contact-item col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                    <div class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow"><a class="ps-block__overlay" href="{% url 'study_resource:resource_detail' item.slug %}"></a><img  style="height: 100px; width: 180" src="{% static 'main/img/Rb726b85a8621f4b7f0f50b5e8d25c01a.png' %}" alt="">
+                    <div class="ps-block--category contact-item-inner outer-shadow inner-shadow hover-in-shadow" style="background-color: #fff; overflow: hidden; box-shadow: 5px 5px 10px #111;  border: none"><a class="ps-block__overlay" href="{% url 'study_resource:resource_detail' item.slug %}"></a><img  style="height: 100px; width: 180" src="{% static 'main/img/Rb726b85a8621f4b7f0f50b5e8d25c01a.png' %}" alt="">
                         <p>{{ item.title }}</p>
                     </div>
                 </div>

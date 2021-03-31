@@ -9,62 +9,79 @@
         border: none;
 
     }
+    @keyframes show-toast {
+        0%, 100%{
+        transform: translateY(0);
+        }
+        50%{
+            transform: translateY(25px);
+        }
+    }
+
+
+    .notification.is-toast {
+        visibility: visible;
+        z-index: 1000;
+        animation: show-toast 3s ease-out infinite;
+        
+    }
+
     .accordion-item{
-                    background-color: #9a0052;
-                    border-right: 0.4rem;
-                    margin-bottom: 1rem;
-                    padding: 1rem;
-                    box-shadow: .5rem 2px .5rem rgba(0,0,0, .1)
-                }
-                .accordion-link{
-                    font-size: 1.6rem;
-                    color: #fff;
-                    text-decoration: none;
-                    background-color: #9a0052;
-                    width: 100%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    padding: 1rem 0;
-                }
-                .accordion-link i{
-                    color: #e7d5ff;
-                    padding: .5rem;
-                }
-                .accordion-link .icon-minus{
-                    display: none;
-                }
-                .answer{
-                    max-height: 0;
-                    overflow: hidden;
-                    position: relative;
-                    background-color: #eaeaea;
-                    transition: max-height 650ms;
-                }
-                .answer:before{
-                    content: "";
-                    position: absolute;
-                    width: .6rem;
-                    height: 90%;
-                    background-color: #000000;
-                    top: 50%;
-                    left: 0;
-                    transform: translateY(-50%);
-                }
-                .answer p{
-                    color: #fff;
-                    font-size: 1.4rem;
-                     padding: 2rem;
-                }
-                .accordion-item:target .answer{
-                    max-height: 100%;
-                }
-                .accordion-item:target .accordion-link .icon-plus{
-                    display: none;
-                }
-                .accordion-item:target .accordion-link .icon-minus{
-                    display: block;
-                }
+        background-color: #9a0052;
+        border-right: 0.4rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        box-shadow: .5rem 2px .5rem rgba(0,0,0, .1)
+    }
+    .accordion-link{
+        font-size: 1.6rem;
+        color: #fff;
+        text-decoration: none;
+        background-color: #9a0052;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+    }
+    .accordion-link i{
+        color: #e7d5ff;
+        padding: .5rem;
+    }
+    .accordion-link .icon-minus{
+        display: none;
+    }
+    .answer{
+        max-height: 0;
+        overflow: hidden;
+        position: relative;
+        background-color: #eaeaea;
+        transition: max-height 650ms;
+    }
+    .answer:before{
+        content: "";
+        position: absolute;
+        width: .6rem;
+        height: 90%;
+        background-color: #000000;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+    .answer p{
+        color: #fff;
+        font-size: 1.4rem;
+        padding: 2rem;
+    }
+    .accordion-item:target .answer{
+        max-height: 100%;
+    }
+    .accordion-item:target .accordion-link .icon-plus{
+        display: none;
+    }
+    .accordion-item:target .accordion-link .icon-minus{
+        display: block;
+        }
 </style>
 <div class="ps-form__content">
     <div class="ps-container">
@@ -72,10 +89,10 @@
         <div style="margin-top: 10px" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-{{message.tags}}  text-center" role="alert" style="background-color: #1DB954; color: #111; border-radius: 6px; font-weight: 600;">
+                <div class="notification is-success is-toast alert alert-{{message.tags}}  text-center" role="alert" style="background-color: #1DB954; color: #fff; border-radius: 6px; font-weight: 600;">
                 {{ message }}
                 </div>
-        {% endfor %}
+            {% endfor %}
         {% endif %}
         </div>
     </div>
@@ -174,7 +191,7 @@
                             <p><div class="row xps-block--payment-method col-lg-12" style="margin: auto;">
                     {% for item in study_resources %}
                     <div class="contact-item col-xl-3 col-lg-3 col-md-4 col-sm-4 col-6 ">
-                        <div style="background-color: #fff; overflow: hidden; box-shadow: 5px 5px 10px #111; overflow: hidden; border: none" class="ps-block--category Wcontact-item-inner  hover-in-shadow"><a class="ps-block__overlay" href="{% url 'study_resource:resource_detail' item.slug %}"></a><img  style="height: 100px; width: 180; " src="{% static 'main/img/Rb726b85a8621f4b7f0f50b5e8d25c01a.png' %}" alt="">
+                        <div style="background-color: #fff; overflow: hidden; box-shadow: 5px 5px 10px #111;  border: none" class="ps-block--category Wcontact-item-inner  hover-in-shadow"><a class="ps-block__overlay" href="{% url 'study_resource:resource_detail' item.slug %}"></a><img  style="height: 100px; width: 180; " src="{% static 'main/img/Rb726b85a8621f4b7f0f50b5e8d25c01a.png' %}" alt="">
                             <h5>{{ item.title }}</h5>
                         </div>
                     </div>
