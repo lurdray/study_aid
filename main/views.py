@@ -17,9 +17,9 @@ import string
 
 # Create your views here.
 
-def LandingPageView(request):
+#def LandingPageView(request):
 
-	return render(request, "main/landing_page.html")
+	#return render(request, "main/landing_page.html")
 
 
 def SignInView(request):
@@ -81,7 +81,7 @@ def IndexView(request):
 
 
 	else:
-		return HttpResponseRedirect(reverse("main:landing_page"))
+		return HttpResponseRedirect(reverse("main:sign_up"))
 
 
 

@@ -9,7 +9,7 @@ path("search", views.SearchView, name="search"),
 
 path("sign-in/", views.SignInView, name="sign_in"),
 path("sign-up/", views.SignUpView, name="sign_up"),
-path("landing-page/", views.LandingPageView, name="landing_page"),
+#path("landing-page/", views.LandingPageView, name="landing_page"),
 
 path("profile/", views.ProfileView, name="profile"),
 
